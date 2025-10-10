@@ -6,6 +6,7 @@ import razorpay_logo from "../assets/frontend_assets/razorpay_logo.png";
 import toast from "react-hot-toast";
 import axios from "axios";
 import useCartStore from "../stores/CartStore";
+import toast from "react-hot-toast";
 
 const CheckoutPage = () => {
 

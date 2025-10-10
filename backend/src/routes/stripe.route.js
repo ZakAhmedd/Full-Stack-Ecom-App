@@ -17,7 +17,6 @@ router.post("/create-checkout-session", async (req, res) => {
         currency: "gbp",
         product_data: {
           name: item.name,
-          images: [item.image],
         },
         unit_amount: Math.round(item.price * 100),
       },

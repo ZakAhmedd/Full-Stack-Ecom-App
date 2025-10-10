@@ -44,17 +44,28 @@ const CheckoutPage = () => {
     }
 
   const handleCheckout = async () => {
-    deliveryInfo.map = (i) => {
-      if (i === "") {
-        return toast.error("Please fill all the details", {
-          icon: "⚠️",
-          style: {
-            background: "#FFFFFF",
-            color: "#991b1b",
-            border: "1px solid #FFBF00",
-          },
-        });
-      }
+    const { firstName, lastName, email, phone, address } = deliveryInfo;
+    const { street, city, state, zipCode, country } = address;
+
+    if (
+      !firstName ||
+      !lastName ||
+      !email ||
+      !phone ||
+      !street ||
+      !city ||
+      !state ||
+      !zipCode ||
+      !country
+    ) {
+      return toast.error("Please fill all the details", {
+        icon: "⚠️",
+        style: {
+          background: "#FFFFFF",
+          color: "#991b1b",
+          border: "1px solid #FFBF00",
+        },
+      });
     }
     const response = await axios.post("http://localhost:5001/api/stripe/create-checkout-session", {
       cartItems,

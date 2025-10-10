@@ -2,8 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import http from "http";
-
 import cors from "cors";
+import { stripeWebhook } from "./controllers/stripe.controller.js";
 
 // import path from "path";
 
@@ -19,6 +19,12 @@ dotenv.config();
 
 const PORT = process.env.PORT;
 // const __dirname = path.resolve();
+
+app.post(
+  "/api/stripe/webhook",
+  express.raw({ type: "application/json" }),
+  stripeWebhook
+);
 
 app.use(express.json());
 app.use(cookieParser());

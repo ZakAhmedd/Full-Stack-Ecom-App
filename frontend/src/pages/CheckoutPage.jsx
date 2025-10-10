@@ -6,12 +6,23 @@ import razorpay_logo from "../assets/frontend_assets/razorpay_logo.png";
 import toast from "react-hot-toast";
 import axios from "axios";
 import useCartStore from "../stores/CartStore";
-import toast from "react-hot-toast";
 
 const CheckoutPage = () => {
 
   const [selectedMethod, setSelectedMethod] = useState("");
-  const [email, setEmail] = useState("");
+  const [deliveryInfo, setDeliveryInfo] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    address: {
+      street: "",
+      city: "",
+      state: "",
+      zipCode: "",
+      country: "",
+    },
+    phone: "",
+  });
 
   const cartItems = useCartStore((state) => state.cartItems);
 
@@ -33,9 +44,21 @@ const CheckoutPage = () => {
     }
 
   const handleCheckout = async () => {
+    deliveryInfo.map = (i) => {
+      if (i === "") {
+        return toast.error("Please fill all the details", {
+          icon: "⚠️",
+          style: {
+            background: "#FFFFFF",
+            color: "#991b1b",
+            border: "1px solid #FFBF00",
+          },
+        });
+      }
+    }
     const response = await axios.post("http://localhost:5001/api/stripe/create-checkout-session", {
       cartItems,
-      userEmail: email,
+      userEmail: deliveryInfo.email,
     });
     window.location.href = response.data.url;
   };
@@ -50,7 +73,7 @@ const CheckoutPage = () => {
           <span className="text-gray-800">INFORMATION</span>
           <span className="w-10 h-[2px] bg-black"></span>
         </div>
-        <DeliveryForm email={email} setEmail={setEmail}/>
+        <DeliveryForm deliveryInfo = {deliveryInfo} setDeliveryInfo = {setDeliveryInfo}/>
       </div>
 
       {/* RIGHT SIDE */}

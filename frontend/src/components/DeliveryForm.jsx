@@ -1,6 +1,6 @@
 import React from "react";
 
-const DeliveryForm = ({email, setEmail}) => {
+const DeliveryForm = ({deliveryInfo, setDeliveryInfo}) => {
   return (
     <form className="grid grid-cols-1 xl:grid-cols-2 gap-4 text-gray-700">
       {/* First Name */}
@@ -10,6 +10,8 @@ const DeliveryForm = ({email, setEmail}) => {
           type="text"
           name="firstName"
           placeholder="John"
+          value={deliveryInfo.firstName}
+          onChange={(e) => setDeliveryInfo({...deliveryInfo, firstName: e.target.value})}
           className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
           required
         />
@@ -22,6 +24,8 @@ const DeliveryForm = ({email, setEmail}) => {
           type="text"
           name="lastName"
           placeholder="Doe"
+          value={deliveryInfo.lastName}
+          onChange={(e) => setDeliveryInfo({...deliveryInfo, lastName: e.target.value})}
           className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
           required
         />
@@ -34,8 +38,8 @@ const DeliveryForm = ({email, setEmail}) => {
           type="email"
           name="email"
           placeholder="john.doe@email.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={deliveryInfo.email}
+          onChange={(e) => setDeliveryInfo({...deliveryInfo, email: e.target.value})}
           className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
           required
         />
@@ -48,6 +52,8 @@ const DeliveryForm = ({email, setEmail}) => {
           type="text"
           name="street"
           placeholder="123 Main St"
+          value={deliveryInfo.address.street}
+          onChange={(e) => setDeliveryInfo({...deliveryInfo, address: {...deliveryInfo.address, street: e.target.value}})}
           className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
           required
         />
@@ -60,6 +66,8 @@ const DeliveryForm = ({email, setEmail}) => {
           type="text"
           name="city"
           placeholder="London"
+          value={deliveryInfo.address.city}
+          onChange={(e) => setDeliveryInfo({...deliveryInfo, address: {...deliveryInfo.address, city: e.target.value}})}
           className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
           required
         />
@@ -72,6 +80,8 @@ const DeliveryForm = ({email, setEmail}) => {
           type="text"
           name="state"
           placeholder="England"
+          value={deliveryInfo.address.state}
+          onChange={(e) => setDeliveryInfo({...deliveryInfo, address: {...deliveryInfo.address, state: e.target.value}})}
           className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
           required
         />
@@ -84,6 +94,8 @@ const DeliveryForm = ({email, setEmail}) => {
           type="text"
           name="zip"
           placeholder="EC1A 1BB"
+          value={deliveryInfo.address.zipCode}
+          onChange={(e) => setDeliveryInfo({...deliveryInfo, address: {...deliveryInfo.address, zipCode: e.target.value}})}
           className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
           required
         />
@@ -96,6 +108,8 @@ const DeliveryForm = ({email, setEmail}) => {
           type="text"
           name="country"
           placeholder="United Kingdom"
+          value={deliveryInfo.address.country}
+          onChange={(e) => setDeliveryInfo({...deliveryInfo, address: {...deliveryInfo.address, country: e.target.value}})}
           className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
           required
         />
@@ -108,6 +122,8 @@ const DeliveryForm = ({email, setEmail}) => {
           type="tel"
           name="phone"
           placeholder="+44 7123 456789"
+          value={deliveryInfo.phone}
+          onChange={(e) => setDeliveryInfo({...deliveryInfo, phone: e.target.value})}
           className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
           required
         />

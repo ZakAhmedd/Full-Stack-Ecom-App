@@ -14,7 +14,9 @@ import Cart from './pages/CartPage';
 import Privacy from './pages/PrivacyPage';
 import Terms from './pages/TermsPage';
 import ProductPage from './pages/ProductPage';
-import CheckoutPage from './pages/CheckoutPage' 
+import CheckoutPage from './pages/CheckoutPage'
+import SuccessPage from './pages/SuccessPage';
+import CancelPage from './pages/CancelPage'
 
 const App = () => {
   return (
@@ -41,6 +43,9 @@ const App = () => {
         <Route path="/product/:id" element={<ProductPage />} />
 
         <Route path="/checkout" element={<CheckoutPage />} />
+
+        <Route path="/success" element={<SuccessPage />} />
+        <Route path="/cancel" element={<CancelPage />} />
 
       </Routes>
 

@@ -1,8 +1,8 @@
 import React from "react";
 
-const DeliveryForm = () => {
+const DeliveryForm = ({email, setEmail}) => {
   return (
-    <form className="grid grid-cols-1 xl:grid-cols-2 gap-4 text-gray-500">
+    <form className="grid grid-cols-1 xl:grid-cols-2 gap-4 text-gray-700">
       {/* First Name */}
       <div className="flex flex-col">
         <label className="text-sm font-medium mb-1">First Name</label>
@@ -34,6 +34,8 @@ const DeliveryForm = () => {
           type="email"
           name="email"
           placeholder="john.doe@email.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
           required
         />

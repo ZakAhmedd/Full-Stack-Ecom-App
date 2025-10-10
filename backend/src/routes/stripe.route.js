@@ -1,4 +1,8 @@
 import express from "express";
+
+import dotenv from "dotenv";
+dotenv.config();
+
 import Stripe from "stripe";
 
 const router = express.Router();
@@ -25,8 +29,8 @@ router.post("/create-checkout-session", async (req, res) => {
       mode: "payment",
       line_items,
       customer_email: userEmail,
-      success_url: `${process.env.CLIENT_URL}/success`,
-      cancel_url: `${process.env.CLIENT_URL}/cart`,
+      success_url: `${process.env.CLIENT_URL}`,
+      cancel_url: `${process.env.CLIENT_URL}`,
     });
 
     res.json({ url: session.url });

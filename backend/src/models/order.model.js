@@ -21,7 +21,7 @@ const orderSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.ObjectId,
         ref: 'User',
-        required: [true, 'Order must belong to a User!']
+        required: false,
     },
     items: [OrderItemSchema],
     subtotal: Number,

@@ -2,10 +2,10 @@ import React from "react";
 
 const CancelPage = () => {
   return (
-    <div className="h-screen flex flex-col justify-center items-center">
-      <div className="flex justify-center items-center gap-2 text-3xl font-medium tracking-wide">
-        <span className="text-gray-500">Sorry, something went wrong. Please try again. </span>
-        <span className="w-16 h-[2.5px] bg-black"></span>
+    <div className="flex flex-col justify-center items-center mt-40">
+      <div className="flex flex-col justify-center border-4 p-10 border-gray-200 items-center gap-2 text-3xl font-medium tracking-wide">
+        <p className="text-gray-500">Sorry, something went wrong</p>
+        <p className="text-gray-500">Please try again</p>
       </div>
     </div>
   );

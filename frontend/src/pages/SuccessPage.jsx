@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const SuccessPage = () => {
   return (
     <div className="flex flex-col items-center mt-10">
-      <div className="flex flex-col border-3 border-blue-800 p-10 justify-center items-center gap-2 text-3xl font-medium tracking-wide">
+      <div className="flex flex-col bg-gray-100 border-3 border-blue-800 p-10 justify-center items-center gap-2 text-3xl font-medium tracking-wide">
         <span className="text-gray-800">Thank you </span>
         <span className="text-gray-500">for your order!</span>
       </div>

@@ -38,7 +38,7 @@ export const createCheckoutSession = async (req, res) => {
       payment_method_types: ["card"],
       mode: "payment",
       line_items,
-      customer: customer.id,
+      customer_email: userEmail,
       metadata: {
         cartItems: JSON.stringify(cartItems),
       },
@@ -72,17 +72,34 @@ export const stripeWebhook = async (req, res) => {
   if (event.type === "checkout.session.completed") {
     const session = event.data.object;
 
+    let items = [];
+    try {
+      if (session.metadata?.cartItems) {
+        const parsedItems = JSON.parse(session.metadata.cartItems);
+        items = parsedItems.map((item) => ({
+          name: item.name,
+          image: Array.isArray(item.image) ? item.image[0] : item.image, // fix array → string
+          price: item.price,
+          quantity: item.quantity,
+        }));
+      }
+    } catch (err) {
+      console.error("⚠️ Failed to parse cartItems:", err.message);
+    }
+
+
     try {
       // Save the order in MongoDB
       await Order.create({
         customerEmail: session.customer_email,
-        items: JSON.parse(session.metadata.cartItems),
+        items,
         total: session.amount_total / 100,
         currency: session.currency,
         stripeSessionId: session.id,
         status: "paid",
         paidAt: new Date(),
       });
+
 
       console.log("✅ Order saved to MongoDB");
     } catch (err) {

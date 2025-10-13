@@ -43,8 +43,17 @@ export const createCheckoutSession = async (req, res) => {
       customer_email: email,
       metadata: {
         cartItems: JSON.stringify(cartItems),
-        deliveryInfo: JSON.stringify(deliveryInfo),
+        firstName: deliveryInfo.firstName,
+        lastName: deliveryInfo.lastName,
+        email: deliveryInfo.email,
+        phone: deliveryInfo.phone,
+        street: deliveryInfo.address.street,
+        city: deliveryInfo.address.city,
+        state: deliveryInfo.address.state,
+        zipCode: deliveryInfo.address.zipCode,
+        country: deliveryInfo.address.country,
       },
+
       success_url: `${process.env.CLIENT_URL}/success`,
       cancel_url: `${process.env.CLIENT_URL}/cancel`,
     });
@@ -76,12 +85,13 @@ export const stripeWebhook = async (req, res) => {
     const session = event.data.object;
 
     let items = [];
+
     try {
       if (session.metadata?.cartItems) {
         const parsedItems = JSON.parse(session.metadata.cartItems);
         items = parsedItems.map((item) => ({
           name: item.name,
-          image: Array.isArray(item.image) ? item.image[0] : item.image, // fix array → string
+          image: Array.isArray(item.image) ? item.image[0] : item.image,
           price: item.price,
           quantity: item.quantity,
         }));
@@ -90,11 +100,26 @@ export const stripeWebhook = async (req, res) => {
       console.error("⚠️ Failed to parse cartItems:", err.message);
     }
 
+    const deliveryInfo = {
+      firstName: session.metadata.firstName,
+      lastName: session.metadata.lastName,
+      email: session.metadata.email,
+      phone: session.metadata.phone,
+      address: {
+        street: session.metadata.street,
+        city: session.metadata.city,
+        state: session.metadata.state,
+        zipCode: session.metadata.zipCode,
+        country: session.metadata.country,
+      },
+    };
+
     try {
       // Save the order in MongoDB
       await Order.create({
         customerEmail: session.customer_email,
         items,
+        deliveryInfo,
         total: session.amount_total / 100,
         currency: session.currency,
         stripeSessionId: session.id,

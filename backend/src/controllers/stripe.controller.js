@@ -7,10 +7,12 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export const createCheckoutSession = async (req, res) => {
   try {
-    const { cartItems, userEmail } = req.body;
+    const { cartItems, deliveryInfo } = req.body;
+    const { firstName, lastName, email, phone, address } = deliveryInfo;
+    const { street, city, state, zipCode, country } = address;
 
     const existingCustomers = await stripe.customers.list({
-      email: userEmail,
+      email: email,
       limit: 1,
     });
 
@@ -19,7 +21,7 @@ export const createCheckoutSession = async (req, res) => {
       customer = existingCustomers.data[0];
     } else {
       customer = await stripe.customers.create({
-        email: userEmail,
+        email: email,
       });
     }
 
@@ -38,9 +40,10 @@ export const createCheckoutSession = async (req, res) => {
       payment_method_types: ["card"],
       mode: "payment",
       line_items,
-      customer_email: userEmail,
+      customer_email: email,
       metadata: {
         cartItems: JSON.stringify(cartItems),
+        deliveryInfo: JSON.stringify(deliveryInfo),
       },
       success_url: `${process.env.CLIENT_URL}/success`,
       cancel_url: `${process.env.CLIENT_URL}/cancel`,
@@ -87,7 +90,6 @@ export const stripeWebhook = async (req, res) => {
       console.error("⚠️ Failed to parse cartItems:", err.message);
     }
 
-
     try {
       // Save the order in MongoDB
       await Order.create({
@@ -100,7 +102,6 @@ export const stripeWebhook = async (req, res) => {
         paidAt: new Date(),
       });
 
-
       console.log("✅ Order saved to MongoDB");
     } catch (err) {
       console.error("❌ Error saving order:", err.message);
@@ -109,4 +110,3 @@ export const stripeWebhook = async (req, res) => {
 
   res.json({ received: true });
 };
-

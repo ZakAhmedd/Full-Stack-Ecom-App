@@ -69,7 +69,7 @@ const CheckoutPage = () => {
     }
     const response = await axios.post("http://localhost:5001/api/stripe/create-checkout-session", {
       cartItems,
-      userEmail: deliveryInfo.email,
+      deliveryInfo,
     });
     window.location.href = response.data.url;
   };

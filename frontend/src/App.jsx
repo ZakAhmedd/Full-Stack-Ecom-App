@@ -17,6 +17,7 @@ import ProductPage from './pages/ProductPage';
 import CheckoutPage from './pages/CheckoutPage'
 import SuccessPage from './pages/SuccessPage';
 import CancelPage from './pages/CancelPage'
+import SignupPage from './pages/SignupPage'
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin" element={<AdminPanel />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignupPage />} />
         <Route path="/cart" element={<Cart />} />
 
         <Route path="/privacy" element={<Privacy />} />

@@ -44,7 +44,7 @@ const DeliveryForm = ({ deliveryInfo, setDeliveryInfo, formikRef }) => {
                 errors.firstName && touched.firstName
                   ? "border-red-500"
                   : "border-gray-300"
-              } rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black`}
+              } placeholder:text-gray-400 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black`}
             />
             <ErrorMessage name="firstName" component="div" className="text-red-500 text-xs mt-1" />
           </div>
@@ -60,7 +60,7 @@ const DeliveryForm = ({ deliveryInfo, setDeliveryInfo, formikRef }) => {
                 errors.lastName && touched.lastName
                   ? "border-red-500"
                   : "border-gray-300"
-              } rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black`}
+              } placeholder:text-gray-400 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black`}
             />
             <ErrorMessage name="lastName" component="div" className="text-red-500 text-xs mt-1" />
           </div>
@@ -76,7 +76,7 @@ const DeliveryForm = ({ deliveryInfo, setDeliveryInfo, formikRef }) => {
                 errors.email && touched.email
                   ? "border-red-500"
                   : "border-gray-300"
-              } rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black`}
+              } placeholder:text-gray-400 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black`}
             />
             <ErrorMessage name="email" component="div" className="text-red-500 text-xs mt-1" />
           </div>
@@ -92,7 +92,7 @@ const DeliveryForm = ({ deliveryInfo, setDeliveryInfo, formikRef }) => {
                 errors.address?.street && touched.address?.street
                   ? "border-red-500"
                   : "border-gray-300"
-              } rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black`}
+              } placeholder:text-gray-400 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black`}
             />
             <ErrorMessage name="address.street" component="div" className="text-red-500 text-xs mt-1" />
           </div>
@@ -108,7 +108,7 @@ const DeliveryForm = ({ deliveryInfo, setDeliveryInfo, formikRef }) => {
                 errors.address?.city && touched.address?.city
                   ? "border-red-500"
                   : "border-gray-300"
-              } rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black`}
+              } placeholder:text-gray-400 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black`}
             />
             <ErrorMessage name="address.city" component="div" className="text-red-500 text-xs mt-1" />
           </div>
@@ -124,7 +124,7 @@ const DeliveryForm = ({ deliveryInfo, setDeliveryInfo, formikRef }) => {
                 errors.address?.state && touched.address?.state
                   ? "border-red-500"
                   : "border-gray-300"
-              } rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black`}
+              } placeholder:text-gray-400 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black`}
             />
             <ErrorMessage name="address.state" component="div" className="text-red-500 text-xs mt-1" />
           </div>
@@ -140,7 +140,7 @@ const DeliveryForm = ({ deliveryInfo, setDeliveryInfo, formikRef }) => {
                 errors.address?.zipCode && touched.address?.zipCode
                   ? "border-red-500"
                   : "border-gray-300"
-              } rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black`}
+              } placeholder:text-gray-400 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black`}
             />
             <ErrorMessage name="address.zipCode" component="div" className="text-red-500 text-xs mt-1" />
           </div>
@@ -156,7 +156,7 @@ const DeliveryForm = ({ deliveryInfo, setDeliveryInfo, formikRef }) => {
                 errors.address?.country && touched.address?.country
                   ? "border-red-500"
                   : "border-gray-300"
-              } rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black`}
+              } placeholder:text-gray-400 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black`}
             />
             <ErrorMessage name="address.country" component="div" className="text-red-500 text-xs mt-1" />
           </div>
@@ -172,7 +172,7 @@ const DeliveryForm = ({ deliveryInfo, setDeliveryInfo, formikRef }) => {
                 errors.phone && touched.phone
                   ? "border-red-500"
                   : "border-gray-300"
-              } rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black`}
+              } placeholder:text-gray-400 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black`}
             />
             <ErrorMessage name="phone" component="div" className="text-red-500 text-xs mt-1" />
           </div>

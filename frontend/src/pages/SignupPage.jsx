@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import toast from 'react-hot-toast'
 
 const SignupPage = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +11,8 @@ const SignupPage = () => {
   })
 
   const [errors, setErrors] = useState({})
+
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -34,8 +38,20 @@ const SignupPage = () => {
       setErrors({})
       try {
         await axios.post('http://localhost:5001/api/auth/signup', formData)
+        toast.success(
+          <>
+            Signed up successfully! <br />
+            Redirecting to login page.
+          </>
+        )
+        setTimeout(() => navigate('/login'), 1500)
+        setFormData({
+          fullName: '',
+          email: '',
+          password: ''
+        })
       } catch (error) {
-        console.log(error)
+        toast.error(error.response.data.message)
       }
     }
   }

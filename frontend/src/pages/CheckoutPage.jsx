@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import CartTotal from "../components/CartTotal";
 import DeliveryForm from "../components/DeliveryForm";
 import stripe_logo from "../assets/frontend_assets/stripe_logo.png";
@@ -24,6 +24,8 @@ const CheckoutPage = () => {
     phone: "",
   });
 
+  const formikRef = useRef()
+
   const cartItems = useCartStore((state) => state.cartItems);
 
   const isCash = (selectedMethod === "cash");
@@ -43,36 +45,47 @@ const CheckoutPage = () => {
     }
     }
 
-  const handleCheckout = async () => {
-    const { firstName, lastName, email, phone, address } = deliveryInfo;
-    const { street, city, state, zipCode, country } = address;
+ const handleStripeCheckout = async () => {
+  // 1️⃣ Run validation
+  const errors = await formikRef.current.validateForm();
 
-    if (
-      !firstName ||
-      !lastName ||
-      !email ||
-      !phone ||
-      !street ||
-      !city ||
-      !state ||
-      !zipCode ||
-      !country
-    ) {
-      return toast.error("Please fill all the details", {
-        icon: "⚠️",
-        style: {
-          background: "#FFFFFF",
-          color: "#991b1b",
-          border: "1px solid #FFBF00",
-        },
-      });
-    }
-    const response = await axios.post("http://localhost:5001/api/stripe/create-checkout-session", {
-      cartItems,
-      deliveryInfo,
-    });
-    window.location.href = response.data.url;
+  // 2️⃣ Mark all fields (including nested ones) as touched
+  const markAllTouched = (obj) => {
+    if (typeof obj !== "object" || obj === null) return true;
+    return Object.fromEntries(Object.keys(obj).map((key) => [key, markAllTouched(obj[key])]));
   };
+
+  formikRef.current.setTouched(markAllTouched(formikRef.current.values), true);
+
+  // 3️⃣ If there are errors, show toast and stop
+  if (Object.keys(errors).length > 0) {
+    toast.error("Please fill all the details correctly", {
+      icon: "⚠️",
+      style: {
+        background: "#FFFFFF",
+        color: "#991b1b",
+        border: "1px solid #FFBF00",
+      },
+    });
+    return;
+  }
+
+  // 4️⃣ Valid form — proceed with checkout
+  const validValues = formikRef.current.values;
+  setDeliveryInfo(validValues);
+
+  try {
+    const response = await axios.post(
+      "http://localhost:5001/api/stripe/create-checkout-session",
+      { cartItems, deliveryInfo: validValues }
+    );
+
+    window.location.href = response.data.url;
+  } catch (err) {
+    console.error(err);
+    toast.error("Something went wrong with Stripe checkout", { icon: "⚠️" });
+  }
+};
 
   return (
     <div className="h-screen flex mx-15 xl:mx-40 mt-20 gap-10">
@@ -84,7 +97,7 @@ const CheckoutPage = () => {
           <span className="text-gray-800">INFORMATION</span>
           <span className="w-10 h-[2px] bg-black"></span>
         </div>
-        <DeliveryForm deliveryInfo = {deliveryInfo} setDeliveryInfo = {setDeliveryInfo}/>
+        <DeliveryForm deliveryInfo = {deliveryInfo} setDeliveryInfo = {setDeliveryInfo} formikRef = {formikRef} />
       </div>
 
       {/* RIGHT SIDE */}
@@ -114,7 +127,7 @@ const CheckoutPage = () => {
             </div>
           </div>
           <div className="flex mt-15 justify-end">
-            <button onClick={handleCheckout} className="w-1/3 xl:w-1/2 bg-black text-white py-4 text-sm xl:text-lg font-medium hover:bg-gray-800 transition cursor-pointer">
+            <button onClick={handleStripeCheckout} className="w-1/3 xl:w-1/2 bg-black text-white py-4 text-sm xl:text-lg font-medium hover:bg-gray-800 transition cursor-pointer">
               PLACE ORDER
             </button>
           </div>

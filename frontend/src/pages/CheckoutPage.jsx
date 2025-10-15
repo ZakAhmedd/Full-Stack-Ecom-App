@@ -32,8 +32,8 @@ const CheckoutPage = () => {
   const isStripe = (selectedMethod === "stripe");
 
   const handleClick = (method) => {
-    {method === "razorpay"
-      ? toast.error(`${method} is disabled for now, use Stripe or COD`, {
+    {method === "razorpay" || method === "cash"
+      ? toast.error(`${method} is disabled for now, use Stripe`, {
         icon: "⚠️",
         style: {
           background: "#FFFFFF",

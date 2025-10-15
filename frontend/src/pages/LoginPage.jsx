@@ -38,7 +38,7 @@ const LoginPage = () => {
 
   return (
     <div className="flex justify-center items-center mt-10">
-      <fieldset className="fieldset flex flex-col justify-center items-center bg-base-200 border-base-300 rounded-box w-1/2 border p-7 pb-15">
+      <fieldset className="fieldset flex flex-col justify-center items-center bg-base-200 rounded-box w-1/2 border border-purple-300 p-7 pb-15">
         <h2 className="text-center font-bold text-2xl mb-10 tracking-wide">Login</h2>
 
         <form onSubmit={handleSubmit} className="flex flex-col w-full items-center space-y-6">

@@ -26,7 +26,7 @@ const LoginPage = () => {
   useEffect(() => {
     if (isLoggedIn) {
       setFormData({ email: "", password: "" });
-      const timer = setTimeout(() => navigate("/"), 1500);
+      const timer = setTimeout(() => navigate("/"), 1000);
       return () => clearTimeout(timer);
     }
   }, [isLoggedIn, navigate]);

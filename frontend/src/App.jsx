@@ -18,6 +18,7 @@ import CheckoutPage from './pages/CheckoutPage'
 import SuccessPage from './pages/SuccessPage';
 import CancelPage from './pages/CancelPage'
 import SignupPage from './pages/SignupPage'
+import OrdersPage from './pages/OrdersPage'
 
 const App = () => {
   return (
@@ -48,6 +49,7 @@ const App = () => {
 
         <Route path="/success" element={<SuccessPage />} />
         <Route path="/cancel" element={<CancelPage />} />
+        <Route path="/orders" element={<OrdersPage />} />
 
       </Routes>
 

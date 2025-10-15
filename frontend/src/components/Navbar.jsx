@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useRef} from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import useSearchBarStore from "../stores/SearchBarStore";
@@ -29,6 +29,27 @@ const Navbar = () => {
   const handleSearchClick = () => {
     openSearchBar();
     navigate("/collection", { state: { showSearch: true } });
+  };
+
+  const profileRef = useRef(null);
+
+  // Close dropdown if clicked outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setIsProfileOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleButtonClick = (callback) => {
+    callback?.();
+    setIsProfileOpen(false);
   };
 
   return (
@@ -106,22 +127,28 @@ const Navbar = () => {
             <img src={search_icon} alt="Search" className="w-7 h-7" />
           </button>
 
-          {/* todo add ternary condition for either login or profile */}
           {isLoggedIn ? (
-            <div>
+            <div className="flex items-center" ref={profileRef}>
+              <div className="relative">
 
-              <button onClick={() => setIsProfileOpen(!isProfileOpen)}>
+              <button onClick={() => setIsProfileOpen(!isProfileOpen)} className="flex items-center justify-center">
                 <img src={profile_icon} alt="Profile" className="w-7 h-7.5" />
               </button>
 
               {isProfileOpen && 
-                <div>
-                  <button onClick={() => logout()}>
+                <div className="absolute -left-15 flex flex-col items-center mt-2 w-40 h-auto bg-gray-100 text-white rounded-lg shadow-lg shadow-gray-400 z-50 gap-5 px-5 py-10">
+                  <NavLink to = "/orders">
+                    <button onClick={() =>setIsProfileOpen(false)} className="btn bg-gray-100 font-extrabold text-gray-700">
+                      Orders
+                    </button>
+                  </NavLink>
+                  <button onClick={() =>handleButtonClick(logout)} className="btn w-20 font-extrabold text-gray-700 bg-gray-100">
                     Logout
                   </button>
                 </div> 
               }
 
+              </div>
             </div>
           ) : (
             <NavLink to="/login" className="rounded">

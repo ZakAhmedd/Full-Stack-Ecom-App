@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import toast from 'react-hot-toast'
-import axios from 'axios'
+import { useAuthStore } from '../stores/AuthStore'
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   })
+
+  const login = useAuthStore((state) => state.login);
+  const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
 
   const navigate = useNavigate()
 
@@ -18,23 +20,16 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    try {
-      await axios.post('http://localhost:5001/api/auth/login', formData)
-      toast.success(
-        <>
-          Logged in successfully! <br />
-          Redirecting to home page.
-        </>
-      )
-      setTimeout(() => navigate('/'), 1500)
-      setFormData({
-        email: '',
-        password: ''
-      })
-    } catch (error) {
-      toast.error(error.response?.data?.message || 'Login failed')
-    }
+    await login(formData.email, formData.password)
   }
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      setFormData({ email: "", password: "" });
+      const timer = setTimeout(() => navigate("/"), 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [isLoggedIn, navigate]);
 
   return (
     <div className="flex justify-center items-center mt-10">

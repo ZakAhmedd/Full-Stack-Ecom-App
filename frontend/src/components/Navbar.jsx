@@ -136,7 +136,7 @@ const Navbar = () => {
               </button>
 
               {isProfileOpen && 
-                <div className="absolute -left-15 flex flex-col items-center mt-2 w-40 h-auto bg-gray-100 text-white rounded-lg shadow-lg shadow-gray-400 z-50 gap-5 px-5 py-10">
+                <div className="absolute -left-15 flex flex-col items-center mt-5 w-40 h-auto bg-gray-100 text-white rounded-lg shadow-lg shadow-gray-400 z-50 gap-5 px-5 py-10">
                   <NavLink to = "/orders">
                     <button onClick={() =>setIsProfileOpen(false)} className="btn bg-gray-100 font-extrabold text-gray-700">
                       Orders

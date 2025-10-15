@@ -105,9 +105,15 @@ const Navbar = () => {
           </button>
 
           {/* todo add ternary condition for either login or profile */}
-          <NavLink to={`${isLoggedIn ? "/collection" : "/login" }`} className="rounded">
+          {isLoggedIn ? (
+          <NavLink to="/colletion" className="rounded">
             <img src={profile_icon} alt="Profile" className="w-7 h-7.5" />
           </NavLink>
+          ) : (
+          <NavLink to="/login" className="rounded">
+            <img src={profile_icon} alt="Profile" className="w-7 h-7.5" />
+          </NavLink>
+          )}
 
           <NavLink to="/cart" className="relative inline-block rounded">
             <img src={cart_icon} alt="Cart" className="w-7 h-7.5" />

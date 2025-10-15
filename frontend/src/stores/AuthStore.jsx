@@ -28,14 +28,25 @@ export const useAuthStore = create(
       },
 
 
-      logout: () => {
-        localStorage.removeItem("token");
-        set({ user: null, isLoggedIn: false });
-      },
-    }),
-    {
-      name: "auth-storage", // localStorage key
-      getStorage: () => localStorage,
-    }
-  )
-);
+      logout: async () => {
+        try {
+          await axios.post("http://localhost:5001/api/auth/logout", {}, {
+            withCredentials: true,
+          });
+
+          set({ user: null, isLoggedIn: false });
+
+          // What does this do?
+          localStorage.removeItem("token");
+
+          toast.success("Logged out successfully!");
+        } catch (err) {
+          toast.error(err.response?.data?.message || "Logout failed");
+        }
+      }
+
+
+  })
+))
+
+export default useAuthStore

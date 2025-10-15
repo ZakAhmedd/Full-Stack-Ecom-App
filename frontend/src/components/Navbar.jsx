@@ -3,7 +3,7 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import useSearchBarStore from "../stores/SearchBarStore";
 import useCartStore from "../stores/CartStore";
-import { useAuthStore } from "../stores/AuthStore";
+import useAuthStore from "../stores/AuthStore";
 
 import logo from "../assets/frontend_assets/logo.png";
 import search_icon from "../assets/frontend_assets/search_icon.png";
@@ -12,9 +12,11 @@ import cart_icon from "../assets/frontend_assets/cart_icon.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const cartItems = useCartStore((state) => state.cartItems);
+  const [isProfileOpen, setIsProfileOpen] = React.useState(false);
 
-  const { isLoggedIn } = useAuthStore((state) => state);
+  const cartItems = useCartStore((state) => state.cartItems);
+  const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
+  const logout = useAuthStore((state) => state.logout);
 
   const location = useLocation();
   const notHome = location.pathname !== "/";
@@ -106,13 +108,25 @@ const Navbar = () => {
 
           {/* todo add ternary condition for either login or profile */}
           {isLoggedIn ? (
-          <NavLink to="/colletion" className="rounded">
-            <img src={profile_icon} alt="Profile" className="w-7 h-7.5" />
-          </NavLink>
+            <div>
+
+              <button onClick={() => setIsProfileOpen(!isProfileOpen)}>
+                <img src={profile_icon} alt="Profile" className="w-7 h-7.5" />
+              </button>
+
+              {isProfileOpen && 
+                <div>
+                  <button onClick={() => logout()}>
+                    Logout
+                  </button>
+                </div> 
+              }
+
+            </div>
           ) : (
-          <NavLink to="/login" className="rounded">
-            <img src={profile_icon} alt="Profile" className="w-7 h-7.5" />
-          </NavLink>
+            <NavLink to="/login" className="rounded">
+              <img src={profile_icon} alt="Profile" className="w-7 h-7.5" />
+            </NavLink>
           )}
 
           <NavLink to="/cart" className="relative inline-block rounded">

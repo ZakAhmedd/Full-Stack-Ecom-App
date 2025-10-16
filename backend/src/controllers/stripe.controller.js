@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import Stripe from "stripe";
 import Order from "../models/order.model.js";
+import User from "../models/user.model.js";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
@@ -115,8 +116,11 @@ export const stripeWebhook = async (req, res) => {
     };
 
     try {
+      const user = await User.findOne({ email: session.customer_email });
+
       // Save the order in MongoDB
       await Order.create({
+        user: user ? user._id : null,
         customerEmail: session.customer_email,
         items,
         deliveryInfo,

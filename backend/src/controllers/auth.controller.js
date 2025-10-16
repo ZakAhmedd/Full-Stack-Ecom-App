@@ -1,5 +1,5 @@
 import User from "../models/user.model.js"
-// import Order from "../models/order.model.js"
+import Order from "../models/order.model.js"
 import bcrypt from "bcryptjs"
 import { generateToken } from "../lib/utils.js"
 
@@ -32,10 +32,10 @@ export const signup = async (req, res) => {
     await newUser.save()
 
     //  Link any guest orders that used this email
-    // await Order.updateMany(
-    //   { customerEmail: email, $or: [{ user: { $exists: false } }, { user: null }] },
-    //   { user: newUser._id }
-    // )
+    await Order.updateMany(
+      { customerEmail: email, $or: [{ user: { $exists: false } }, { user: null }] },
+      { user: newUser._id }
+    )
 
     generateToken(newUser._id, res)
 

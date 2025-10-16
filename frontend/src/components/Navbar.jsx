@@ -136,13 +136,13 @@ const Navbar = () => {
               </button>
 
               {isProfileOpen && 
-                <div className="absolute -left-15 flex flex-col items-center mt-5 w-40 h-auto bg-gray-100 text-white rounded-lg shadow-lg shadow-gray-400 z-50 gap-5 px-5 py-10">
+                <div className="absolute -left-15 flex flex-col items-center mt-5 w-40 h-auto bg-gray-100 text-white border-2 rounded-lg shadow-lg shadow-gray-400 z-50 gap-5 px-5 py-10">
                   <NavLink to = "/orders">
-                    <button onClick={() =>setIsProfileOpen(false)} className="btn bg-gray-100 font-extrabold text-gray-700">
+                    <button onClick={() =>setIsProfileOpen(false)} className="btn font-extrabold text-gray-700 bg-white">
                       Orders
                     </button>
                   </NavLink>
-                  <button onClick={() =>handleButtonClick(logout)} className="btn w-20 font-extrabold text-gray-700 bg-gray-100">
+                  <button onClick={() =>handleButtonClick(logout)} className="btn w-20 font-extrabold text-gray-700 bg-white">
                     Logout
                   </button>
                 </div> 

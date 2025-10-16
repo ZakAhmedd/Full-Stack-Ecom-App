@@ -1,17 +1,27 @@
 import Order from "../models/order.model.js"
 
 export const getMyOrders = async (req, res) => {
+  console.log(req.user)
   try {
-    const orders = await Order.find({ user: req.user._id })
-      .sort({ createdAt: -1 })
-      .populate("user", "fullName email")
+    if (!req.user) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
 
-    res.status(200).json(orders)
+    const orders = await Order.find({
+      $or: [
+        { user: req.user._id },
+        { customerEmail: req.user.email }
+      ]
+    })
+      .sort({ createdAt: -1 })
+      .populate("user", "fullName email");
+
+    res.status(200).json(orders);
   } catch (error) {
-    console.error("Error fetching user orders:", error.message)
-    res.status(500).json({ message: "Failed to fetch orders" })
+    console.error("Error fetching user orders:", error.message);
+    res.status(500).json({ message: "Failed to fetch orders" });
   }
-}
+};
 
 export const getOrderById = async (req, res) => {
   try {

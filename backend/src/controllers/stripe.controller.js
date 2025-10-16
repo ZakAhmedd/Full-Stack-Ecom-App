@@ -2,16 +2,15 @@ import dotenv from "dotenv";
 dotenv.config();
 import Stripe from "stripe";
 import Order from "../models/order.model.js";
-import User from "../models/user.model.js";
 import mongoose from "mongoose";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export const createCheckoutSession = async (req, res) => {
+  
   try {
     const { cartItems, deliveryInfo } = req.body;
-    const { firstName, lastName, email, phone, address } = deliveryInfo;
-    const { street, city, state, zipCode, country } = address;
+    const { email } = deliveryInfo;
 
     const existingCustomers = await stripe.customers.list({
       email: email,
@@ -38,13 +37,14 @@ export const createCheckoutSession = async (req, res) => {
       quantity: item.quantity,
     }));
 
-    const totalAmount = cartItems.reduce(
-      (sum, item) => sum + item.price * item.quantity,
-      0
+    const totalAmount = parseFloat(
+      cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2)
     );
+
 
     const sanitizedItems = cartItems.map(item => ({
       _id: new mongoose.Types.ObjectId(),
+      productId: item.productId,
       name: item.name,
       price: item.price,
       quantity: item.quantity,
@@ -52,10 +52,10 @@ export const createCheckoutSession = async (req, res) => {
       image: Array.isArray(item.image) ? item.image[0] : item.image,
     }));
 
-    const user = await User.findOne({ email });
+    const userId = req.user ? req.user._id : null;
 
     const pendingOrder = await Order.create({
-      user: user ? user._id : null,
+      user: userId,
       customerEmail: email,
       items: sanitizedItems,
       deliveryInfo,

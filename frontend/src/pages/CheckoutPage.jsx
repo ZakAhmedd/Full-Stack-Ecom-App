@@ -74,7 +74,8 @@ const CheckoutPage = () => {
     console.log(cartItems)
     const response = await axios.post(
       "http://localhost:5001/api/stripe/create-checkout-session",
-      { cartItems, deliveryInfo: validValues }
+      { cartItems, deliveryInfo: validValues },
+      { withCredentials: true }
     );
 
     window.location.href = response.data.url;

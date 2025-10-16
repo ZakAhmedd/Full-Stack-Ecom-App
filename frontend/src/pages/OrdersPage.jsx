@@ -22,7 +22,7 @@ const OrdersPage = () => {
   return (
     <div className="flex flex-col mx-15 xl:mx-40 mt-3">
 
-      <div className="flex justify-center items-center gap-2 text-3xl font-medium tracking-wide mb-8">
+      <div className="flex justify-center items-center gap-2 text-3xl font-medium tracking-wide mb-15">
         <span className="text-gray-500">YOUR</span>
         <span className="text-gray-800">ORDERS</span>
         <span className="w-16 h-[2.5px] bg-black"></span>
@@ -61,7 +61,7 @@ const OrdersPage = () => {
                     </span>
                   </p>
                 </div>
-                <div>
+                <div className="flex gap-4">
                   {order.items.map((item) => (
                     <img
                       key={item._id}

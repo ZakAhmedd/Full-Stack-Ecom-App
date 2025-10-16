@@ -47,8 +47,9 @@ const Navbar = () => {
     };
   }, []);
 
-  const handleButtonClick = (callback) => {
-    callback?.();
+  const handleLogout = () => {
+    logout()
+    navigate("/")
     setIsProfileOpen(false);
   };
 
@@ -142,7 +143,7 @@ const Navbar = () => {
                       Orders
                     </button>
                   </NavLink>
-                  <button onClick={() =>handleButtonClick(logout)} className="btn w-20 font-extrabold text-gray-700 bg-white">
+                  <button onClick={() =>handleLogout()} className="btn w-20 font-extrabold text-gray-700 bg-white">
                     Logout
                   </button>
                 </div> 

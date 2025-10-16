@@ -13,14 +13,17 @@ export const useAuthStore = create(
         try {
           const response = await axios.post(
             "http://localhost:5001/api/auth/login",
-            { email, password }
+            { email, password },
+            {
+              withCredentials: true,
+            }
           );
 
           const data = response.data;
 
           toast.success("Logged in successfully!");
 
-          set({ user: data.user, isLoggedIn: true });
+          set({ user: data, isLoggedIn: true });
           localStorage.setItem("token", data.token);
         } catch (err) {
           toast.error(err.response?.data?.message || "Login failed");
@@ -36,7 +39,6 @@ export const useAuthStore = create(
 
           set({ user: null, isLoggedIn: false });
 
-          // What does this do?
           localStorage.removeItem("token");
 
           toast.success("Logged out successfully!");

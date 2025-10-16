@@ -8,14 +8,14 @@ const ProductCart = (product) => {
   const updateQuantity = useCartStore((state) => state.updateQuantity);
 
   const increment = () => {
-    updateQuantity(product.item.id, product.item.size, product.item.quantity + 1);
+    updateQuantity(product.item._id, product.item.size, product.item.quantity + 1);
   };
 
   const decrement = () => {
     if (product.item.quantity > 1) {
-      updateQuantity(product.item.id, product.item.size, product.item.quantity - 1);
+      updateQuantity(product.item._id, product.item.size, product.item.quantity - 1);
     } else {
-      removeItem(product.item.id, product.item.size);
+      removeItem(product.item._id, product.item.size);
     }
   };
 

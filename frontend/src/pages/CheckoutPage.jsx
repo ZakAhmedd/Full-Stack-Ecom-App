@@ -46,10 +46,8 @@ const CheckoutPage = () => {
     }
 
  const handleStripeCheckout = async () => {
-  // 1️⃣ Run validation
   const errors = await formikRef.current.validateForm();
 
-  // 2️⃣ Mark all fields (including nested ones) as touched
   const markAllTouched = (obj) => {
     if (typeof obj !== "object" || obj === null) return true;
     return Object.fromEntries(Object.keys(obj).map((key) => [key, markAllTouched(obj[key])]));
@@ -57,7 +55,6 @@ const CheckoutPage = () => {
 
   formikRef.current.setTouched(markAllTouched(formikRef.current.values), true);
 
-  // 3️⃣ If there are errors, show toast and stop
   if (Object.keys(errors).length > 0) {
     toast.error("Please fill all the details correctly", {
       icon: "⚠️",
@@ -70,11 +67,11 @@ const CheckoutPage = () => {
     return;
   }
 
-  // 4️⃣ Valid form — proceed with checkout
   const validValues = formikRef.current.values;
   setDeliveryInfo(validValues);
 
   try {
+    console.log(cartItems)
     const response = await axios.post(
       "http://localhost:5001/api/stripe/create-checkout-session",
       { cartItems, deliveryInfo: validValues }

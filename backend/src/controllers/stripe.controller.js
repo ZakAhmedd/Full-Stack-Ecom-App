@@ -95,6 +95,7 @@ export const stripeWebhook = async (req, res) => {
           image: Array.isArray(item.image) ? item.image[0] : item.image,
           price: item.price,
           quantity: item.quantity,
+          size: item.size,
         }));
       }
     } catch (err) {

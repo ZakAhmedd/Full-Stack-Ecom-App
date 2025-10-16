@@ -30,7 +30,7 @@ const OrdersPage = () => {
 
       <div className="flex flex-col gap-5">
         {orders.length === 0 ? (
-          <p className="text-center text-gray-500 mt-10">You have no orders yet.</p>
+          <p className="text-center text-gray-500 mt-20 -ml-8">You have no orders yet.</p>
         ) : (
           orders.map((order) => (
             <div
@@ -38,7 +38,7 @@ const OrdersPage = () => {
               className="border border-gray-300 rounded-xl p-5 shadow-sm hover:shadow-md transition"
             >
               <div className="flex justify-between">
-                <div>
+                <div className="flex flex-col gap-2">
                   <p className="font-semibold text-gray-800">
                     Order ID: <span className="text-gray-600">{order._id}</span>
                   </p>
@@ -61,6 +61,40 @@ const OrdersPage = () => {
                     </span>
                   </p>
                 </div>
+                <div>
+                  {order.items.map((item) => (
+                    <img
+                      key={item._id}
+                      src={item.image}
+                      alt={item.name}
+                      className="w-20 h-20 object-cover"
+                    />
+                  ))}
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <p className="text-gray-600">
+                    Product(s):{" "}
+                    <span className="font-medium text-black">
+                      {order.items.map((item) => item.name).join(", ")}
+                    </span>
+                  </p>
+
+                  <p className="text-gray-600">
+                    Items:{" "}
+                    <span className="font-medium text-black">
+                      {order.items.reduce((acc, item) => acc + item.quantity, 0)}
+                    </span>
+                  </p>
+
+                   <p className="text-gray-600">
+                    Size(s):{" "}
+                    <span className="font-medium text-black">
+                      {order.items.map((item) => item.size).join(", ")}
+                    </span>
+                  </p>
+                </div>
+
                 <div className="text-sm text-gray-500">
                   <p>{new Date(order.createdAt).toLocaleDateString()}</p>
                 </div>

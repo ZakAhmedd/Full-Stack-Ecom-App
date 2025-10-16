@@ -132,7 +132,7 @@ const Navbar = () => {
             <div className="flex items-center" ref={profileRef}>
               <div className="relative">
 
-              <button onClick={() => setIsProfileOpen(!isProfileOpen)} className="flex items-center justify-center">
+              <button onClick={() => setIsProfileOpen(!isProfileOpen)} className="flex items-center justify-center cursor-pointer">
                 <img src={profile_icon} alt="Profile" className="w-7 h-7.5" />
               </button>
 

@@ -51,7 +51,7 @@ const ProductCart = (product) => {
 
       </div>
       <div className="flex justify-center items-center xl:mr-15">
-        <button onClick={() => removeItem(product.item.id, product.item.size)} className="cursor-pointer">
+        <button onClick={() => removeItem(product.item._id, product.item.size)} className="cursor-pointer">
           <img src={bin_icon} alt="bin icon" className="w-7 h-auto" />
         </button>
       </div>

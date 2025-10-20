@@ -317,7 +317,7 @@ const products = [
     description:
       "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
     price: 230,
-    image: [p_img28],
+    image: ["https://res.cloudinary.com/dh33ioclo/image/upload/v1760978616/p_img28_mn0qoz.png"],
     category: "Men",
     subCategory: "Winterwear",
     sizes: ["S", "M", "L", "XL"],
@@ -330,7 +330,7 @@ const products = [
     description:
       "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
     price: 220,
-    image: [p_img31],
+    image: ["https://res.cloudinary.com/dh33ioclo/image/upload/v1760978622/p_img31_gf3fin.png"],
     category: "Men",
     subCategory: "Topwear",
     sizes: ["S", "M", "L", "XL"],
@@ -343,7 +343,7 @@ const products = [
     description:
       "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
     price: 260,
-    image: [p_img34],
+    image: ["https://res.cloudinary.com/dh33ioclo/image/upload/v1760978628/p_img34_qxnyds.png"],
     category: "Women",
     subCategory: "Topwear",
     sizes: ["S", "M", "L", "XL"],
@@ -356,7 +356,7 @@ const products = [
     description:
       "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
     price: 240,
-    image: [p_img35],
+    image: ["https://res.cloudinary.com/dh33ioclo/image/upload/v1760978630/p_img35_useizb.png"],
     category: "Women",
     subCategory: "Winterwear",
     sizes: ["S", "M", "L", "XL"],
@@ -369,7 +369,7 @@ const products = [
     description:
       "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
     price: 270,
-    image: [p_img36],
+    image: ["https://res.cloudinary.com/dh33ioclo/image/upload/v1760978634/p_img36_spghsm.png"],
     category: "Women",
     subCategory: "Winterwear",
     sizes: ["S", "M", "L", "XL"],
@@ -382,7 +382,7 @@ const products = [
     description:
       "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
     price: 250,
-    image: [p_img37],
+    image: ["https://res.cloudinary.com/dh33ioclo/image/upload/v1760998378/p_img37_b7m4lh.png"],
     category: "Women",
     subCategory: "Topwear",
     sizes: ["S", "M", "L", "XL"],
@@ -390,25 +390,12 @@ const products = [
     bestseller: true,
   },
   {
-    _id: "aaabl",
-    name: "Men Round Neck Pure Cotton T-shirt",
-    description:
-      "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
-    price: 280,
-    image: [p_img38],
-    category: "Men",
-    subCategory: "Topwear",
-    sizes: ["S", "M", "L", "XL"],
-    date: 1716653045448,
-    bestseller: false,
-  },
-  {
     _id: "aaabm",
     name: "Men Printed Plain Cotton Shirt",
     description:
       "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
     price: 260,
-    image: [p_img39],
+    image: ["https://res.cloudinary.com/dh33ioclo/image/upload/v1760978641/p_img39_harref.png"],
     category: "Men",
     subCategory: "Topwear",
     sizes: ["S", "M", "L", "XL"],
@@ -421,7 +408,7 @@ const products = [
     description:
       "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
     price: 290,
-    image: [p_img40],
+    image: ["https://res.cloudinary.com/dh33ioclo/image/upload/v1760978642/p_img40_lp1i3w.png"],
     category: "Men",
     subCategory: "Winterwear",
     sizes: ["S", "M", "L", "XL"],
@@ -434,7 +421,7 @@ const products = [
     description:
       "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
     price: 270,
-    image: [p_img41],
+    image: ["https://res.cloudinary.com/dh33ioclo/image/upload/v1760978645/p_img41_cicqil.png"],
     category: "Men",
     subCategory: "Topwear",
     sizes: ["S", "M", "L", "XL"],
@@ -447,7 +434,7 @@ const products = [
     description:
       "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
     price: 280,
-    image: [p_img43],
+    image: ["https://res.cloudinary.com/dh33ioclo/image/upload/v1760978650/p_img43_mqluof.png"],
     category: "Kids",
     subCategory: "Bottomwear",
     sizes: ["S", "M", "L", "XL"],
@@ -460,7 +447,7 @@ const products = [
     description:
       "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
     price: 310,
-    image: [p_img44],
+    image: ["https://res.cloudinary.com/dh33ioclo/image/upload/v1760978651/p_img44_rvtr1j.png"],
     category: "Women",
     subCategory: "Winterwear",
     sizes: ["S", "M", "L", "XL"],
@@ -473,7 +460,7 @@ const products = [
     description:
       "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
     price: 290,
-    image: [p_img45],
+    image: ["https://res.cloudinary.com/dh33ioclo/image/upload/v1760978651/p_img45_mogf6p.png"],
     category: "Men",
     subCategory: "Winterwear",
     sizes: ["S", "M", "L", "XL"],
@@ -486,7 +473,7 @@ const products = [
     description:
       "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
     price: 320,
-    image: [p_img46],
+    image: ["https://res.cloudinary.com/dh33ioclo/image/upload/v1760978652/p_img46_vz94ny.png"],
     category: "Men",
     subCategory: "Winterwear",
     sizes: ["S", "M", "L", "XL"],
@@ -499,7 +486,7 @@ const products = [
     description:
       "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
     price: 300,
-    image: [p_img47],
+    image: ["https://res.cloudinary.com/dh33ioclo/image/upload/v1760978658/p_img47_ink88t.png"],
     category: "Kids",
     subCategory: "Bottomwear",
     sizes: ["S", "M", "L", "XL"],
@@ -512,7 +499,7 @@ const products = [
     description:
       "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
     price: 330,
-    image: [p_img48],
+    image: ["https://res.cloudinary.com/dh33ioclo/image/upload/v1760978658/p_img48_goyot9.png"],
     category: "Men",
     subCategory: "Winterwear",
     sizes: ["S", "M", "L", "XL"],
@@ -525,7 +512,7 @@ const products = [
     description:
       "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
     price: 310,
-    image: [p_img49],
+    image: ["https://res.cloudinary.com/dh33ioclo/image/upload/v1760978659/p_img49_si9ng9.png"],
     category: "Kids",
     subCategory: "Bottomwear",
     sizes: ["S", "M", "L", "XL"],
@@ -538,7 +525,7 @@ const products = [
     description:
       "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
     price: 340,
-    image: [p_img50],
+    image: ["https://res.cloudinary.com/dh33ioclo/image/upload/v1760978660/p_img50_dj57oz.png"],
     category: "Kids",
     subCategory: "Bottomwear",
     sizes: ["S", "M", "L", "XL"],
@@ -551,7 +538,7 @@ const products = [
     description:
       "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
     price: 320,
-    image: [p_img51],
+    image: ["https://res.cloudinary.com/dh33ioclo/image/upload/v1760978665/p_img51_ro6adk.png"],
     category: "Women",
     subCategory: "Winterwear",
     sizes: ["S", "M", "L", "XL"],
@@ -564,7 +551,7 @@ const products = [
     description:
       "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
     price: 350,
-    image: [p_img52],
+    image: ["https://res.cloudinary.com/dh33ioclo/image/upload/v1760978666/p_img52_u1dthr.png"],
     category: "Men",
     subCategory: "Winterwear",
     sizes: ["S", "M", "L", "XL"],

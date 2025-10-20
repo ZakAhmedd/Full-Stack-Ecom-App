@@ -12,6 +12,7 @@ import { connectDB } from "./lib/db.js";
 import authRoutes from "./routes/auth.route.js";
 import stripeRoutes from "./routes/stripe.route.js";
 import orderRoutes from "./routes/order.route.js";
+import productRoutes from "./routes/product.route.js";
 
 const app = express();
 const server = http.createServer(app);
@@ -39,6 +40,7 @@ app.use(
 app.use("/api/auth", authRoutes);
 app.use("/api/stripe", stripeRoutes);
 app.use("/api/orders", orderRoutes);
+app.use("/api/products", productRoutes);
 
 // if (process.env.NODE_ENV === "production") {
 //   app.use(express.static(path.join(__dirname, "../frontend/dist")));

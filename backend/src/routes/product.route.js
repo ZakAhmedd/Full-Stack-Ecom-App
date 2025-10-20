@@ -13,8 +13,8 @@ const router = express.Router();
 // ADD ADMIN ONLY MIDDLEWARE
 
 router.get("/", getProducts);
-router.post("/", protectRoute, upload.array("images", 5), createProduct);
-router.put("/:id", protectRoute, updateProduct);
+router.post("/", protectRoute, upload.single("image"), createProduct);
+router.put("/:id", protectRoute, upload.single("image"), updateProduct);
 router.delete("/:id", protectRoute, deleteProduct);
 
 export default router;

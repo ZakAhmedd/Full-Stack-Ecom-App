@@ -1,5 +1,7 @@
 import React from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ToastProvider from "./components/ToastProvider";
+import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/HomePage";
 import Collection from "./pages/CollectionPage";
 import About from "./pages/AboutPage";
@@ -26,6 +28,11 @@ import AdminLayout from "./layouts/admin.layout";
 const App = () => {
   return (
     <Router>
+
+      <ScrollToTop />
+
+      <ToastProvider />
+
       <Routes>
 
         {/* Public routes */}

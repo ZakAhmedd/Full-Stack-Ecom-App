@@ -206,7 +206,9 @@ const Navbar = () => {
               CONTACT
             </NavLink>
             <NavLink
-              to="/admin"
+              to="/adminLogin"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-sm text-center py-2 hover:bg-gray-100 border border-gray-300 rounded-2xl"
               onClick={() => setIsOpen(false)}
             >

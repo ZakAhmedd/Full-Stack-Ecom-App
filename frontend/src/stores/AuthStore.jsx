@@ -30,6 +30,27 @@ export const useAuthStore = create(
         }
       },
 
+      adminLogin: async (email, password) => {
+        try {
+          const response = await axios.post(
+            "http://localhost:5001/api/admin/login",
+            { email, password },
+            {
+              withCredentials: true,
+            }
+          );
+
+          const data = response.data;
+
+          toast.success("Logged in successfully!");
+
+          set({ user: data, isLoggedIn: true });
+          localStorage.setItem("token", data.token);
+        } catch (err) {
+          toast.error(err.response?.data?.message || "Login failed");
+        }
+      },
+
 
       logout: async () => {
         try {

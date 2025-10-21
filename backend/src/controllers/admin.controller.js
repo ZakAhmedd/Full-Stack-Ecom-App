@@ -1,5 +1,6 @@
 import User from "../models/user.model.js";
 import jwt from "jsonwebtoken";
+import bcrypt from "bcryptjs";
 
 export const loginAdmin = async (req, res) => {
   try {
@@ -10,7 +11,7 @@ export const loginAdmin = async (req, res) => {
       return res.status(403).json({ message: "Access denied" });
     }
 
-    const isMatch = await user.comparePassword(password);
+    const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(401).json({ message: "Invalid credentials" });
     }

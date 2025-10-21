@@ -1,15 +1,17 @@
 import React, { useState } from "react"
 import { useParams } from "react-router-dom";
-import { products } from "../assets/frontend_assets/assets";
 import star_icon from "../assets/frontend_assets/star_icon.png";
 import star_dull from "../assets/frontend_assets/star_dull_icon.png";
 import ProductCard from "../components/ProductCard";
 import useCartStore from "../stores/CartStore";
+import useProductStore from "../stores/ProductStore";
 import toast from "react-hot-toast";
 
 export default function ProductPage() {
 
   const [selectedSize, setSelectedSize] = useState(false);
+
+  const { products } = useProductStore();
 
   const sizes = ["S", "M", "L", "XL", "XXL"];
   const { id } = useParams();

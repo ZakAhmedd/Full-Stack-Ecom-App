@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import sort from "../assets/frontend_assets/sort.png";
 import ProductCard from "../components/ProductCard";
-import { products } from "../assets/frontend_assets/assets";
 import Filters from "../components/Filters";
 import SearchBar from "../components/SearchBar";
 import useSearchBarStore from "../stores/SearchBarStore";
+import useProductStore from "../stores/ProductStore";
 
 const CollectionPage = () => {
 
@@ -12,6 +12,8 @@ const CollectionPage = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedTypes, setSelectedTypes] = useState([]);
+
+  const { products, getProducts } = useProductStore();
 
   const showSearchBar = useSearchBarStore((state) => state.showSearchBar);
   const searchTerm = useSearchBarStore((state) => state.searchTerm);
@@ -55,6 +57,9 @@ const CollectionPage = () => {
     return 0; // relevant
   });
 
+   useEffect(() => {
+      getProducts();
+    }, [getProducts]);
 
   return (
 

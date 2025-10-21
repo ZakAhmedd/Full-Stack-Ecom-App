@@ -1,9 +1,16 @@
-import React from 'react'
-import { products } from '../assets/frontend_assets/assets'
+import React, {useEffect} from 'react'
 import ProductCard from '../components/ProductCard'
 import SubscribeForm from '../components/SubscribeForm'
+import useProductStore from '../stores/ProductStore'
 
 const HomePage = () => {
+
+  const { products, getProducts } = useProductStore();
+
+  useEffect(() => {
+    getProducts();
+  }, [getProducts]);
+
   return (
     <div className="mx-10 xl:mx-40">
 

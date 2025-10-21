@@ -115,7 +115,9 @@ const Navbar = () => {
           </NavLink>
 
           <NavLink
-            to="/admin"
+            to="/adminLogin"
+            target="_blank"
+            rel="noopener noreferrer"
             className="border border-gray-300 rounded-4xl px-6 py-3 text-sm"
           >
             {" "}

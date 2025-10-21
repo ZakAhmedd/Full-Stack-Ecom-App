@@ -1,7 +1,6 @@
 import Order from "../models/order.model.js"
 
 export const getMyOrders = async (req, res) => {
-  console.log(req.user)
   try {
     if (!req.user) {
       return res.status(401).json({ message: "Unauthorized" });

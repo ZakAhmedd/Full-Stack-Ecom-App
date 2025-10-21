@@ -23,10 +23,13 @@ export const signup = async (req, res) => {
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(password, salt)
 
+    const isAdmin = email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD
+
     const newUser = new User({
       fullName,
       email,
-      password: hashedPassword
+      password: hashedPassword,
+      isAdmin: isAdmin
     })
 
     await newUser.save()

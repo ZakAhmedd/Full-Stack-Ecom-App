@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import useAuthStore from '../stores/AuthStore'
 
 const LoginPage = () => {
@@ -26,10 +26,10 @@ const LoginPage = () => {
   useEffect(() => {
     if (isLoggedIn) {
       setFormData({ email: "", password: "" });
-      const timer = setTimeout(() => navigate("/dashboard"), 1000);
-      return () => clearTimeout(timer);
+      navigate("/admin/dashboard"); 
     }
   }, [isLoggedIn, navigate]);
+
 
   return (
     <div className="h-screen flex justify-center -my-5 xl:-my-20 items-center">

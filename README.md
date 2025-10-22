@@ -6,6 +6,7 @@
 🎃 Authentication && Authorization with JWT
 👌 Global state management with Zustand
 ☁️ Cloudinary storage for all Images
+✅ Formik + Yup for form on frontend
 🐞 Error handling both on the server and on the client
 
 ## Installation

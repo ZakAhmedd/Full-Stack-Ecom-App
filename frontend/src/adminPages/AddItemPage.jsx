@@ -29,6 +29,20 @@ const AddItemPage = () => {
     e.preventDefault();
 
     try {
+
+      if (
+        !formData.name ||
+        !formData.description ||
+        !formData.price ||
+        !formData.category ||
+        !formData.subCategory ||
+        !formData.sizes.length ||
+        !formData.image.length
+      ) {
+        toast.error("Please fill in all the required fields");
+        return;
+      }
+
       const data = new FormData();
       data.append("name", formData.name);
       data.append("description", formData.description);
@@ -71,7 +85,7 @@ const AddItemPage = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-10 p-10 pl-20 text-xl text-gray-700 font-medium">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-10 p-5 pl-20 text-xl text-gray-700 font-medium">
       <div className="flex flex-col gap-5">
         <h1>Upload Images</h1>
         <div className="flex gap-4 flex-wrap">

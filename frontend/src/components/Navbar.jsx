@@ -4,7 +4,6 @@ import { Menu, X } from "lucide-react";
 import useSearchBarStore from "../stores/SearchBarStore";
 import useCartStore from "../stores/CartStore";
 import useAuthStore from "../stores/AuthStore";
-
 import logo from "../assets/frontend_assets/logo.png";
 import search_icon from "../assets/frontend_assets/search_icon.png";
 import profile_icon from "../assets/frontend_assets/profile_icon.png";

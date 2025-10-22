@@ -149,7 +149,7 @@ const AddItemPage = () => {
         />
       </div>
 
-      <div className="flex gap-10">
+      <div className="flex gap-25 xl:gap-10">
 
         <div className="flex flex-col gap-4 w-full max-w-1/6">
           <label htmlFor="category">
@@ -187,7 +187,7 @@ const AddItemPage = () => {
           </select>
         </div>
 
-        <div className="flex flex-col gap-2 w-full max-w-1/6">
+        <div className="flex flex-col gap-2 w-full max-w-1/5 xl:max-w-1/6">
           <label htmlFor="price" className="font-medium text-gray-700">
             Product Price (£)
           </label>

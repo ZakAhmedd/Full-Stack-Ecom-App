@@ -5,7 +5,7 @@ import order_icon from "../assets/admin_assets/order_icon.png"
 
 const AdminSidebar = () => {
   return (
-    <div className="h-screen flex items-end flex-col gap-10 w-1/5 border-r border-gray-200 pt-10">
+    <div className="h-screen flex items-end flex-col gap-10 w-80 border-r border-gray-200 pt-10">
 
       <NavLink
         to="/admin/addItem"

@@ -1,12 +1,15 @@
 {
   "name": "ecom-app",
+  "engines": {
+    "node": "22.16.0"
+  },
   "version": "1.0.0",
   "description": "🌟 Tech stack: MERN + TailwindCSS + Daisy UI 🎃 Authentication && Authorization with JWT 👌 Global state management with Zustand ☁️ Cloudinary storage for all Images ✅ Formik + Yup for form on frontend 🐞 Error handling both on the server and on the client",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm install --prefix backend && npm install --prefix frontend --include=dev && npm run build --prefix frontend",
-    "start": "npm run start --prefix backend"
+    "build": "cd frontend && npm install --include=dev && npm run build && cd ../backend && npm install",
+    "start": "cd backend && npm start"
   },
   "repository": {
     "type": "git",

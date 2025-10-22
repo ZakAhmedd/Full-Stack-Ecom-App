@@ -13,10 +13,10 @@ export default function ProductPage() {
 
   const { products } = useProductStore();
 
-  const sizes = ["S", "M", "L", "XL", "XXL"];
   const { id } = useParams();
   const product = products.find((p) => p._id === id);
   const addItem = useCartStore(state => state.addItem)
+  const sizes = product.sizes
 
   const relatedProducts = products.filter(
   (p) => p.category === product.category && p.subCategory === product.subCategory && p._id !== product._id
@@ -98,7 +98,6 @@ export default function ProductPage() {
             </button>
           ))}
         </div>
-        {/* TODO MAKE SURE SIZE IS SELECTED */}
         <button onClick={handleAddToCart} className="btn btn-neutral text-white text-xl font-medium px-10 py-7 mt-4 w-fit">
           ADD TO CART
         </button>

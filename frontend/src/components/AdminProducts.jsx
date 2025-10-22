@@ -7,7 +7,7 @@ const AdminProducts = ({product}) => {
   const { deleteProduct } = useProductStore();
 
   return (
-    <div className="grid grid-cols-[200px_450px_180px_1fr_100px] items-center w-full border-t border-b border-gray-200 py-2">
+    <div className="min-w-[1100px] grid grid-cols-[200px_450px_180px_1fr_100px] items-center w-full border-t border-b border-gray-200 py-2">
 
       <div className="flex items-center">
         <div className="w-[150px] flex items-center justify-center">

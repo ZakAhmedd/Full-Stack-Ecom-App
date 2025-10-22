@@ -5,7 +5,7 @@ import http from "http";
 import cors from "cors";
 import { stripeWebhook } from "./controllers/stripe.controller.js";
 
-// import path from "path";
+import path from "path";
 
 import { connectDB } from "./lib/db.js";
 
@@ -21,7 +21,7 @@ const server = http.createServer(app);
 dotenv.config();
 
 const PORT = process.env.PORT;
-// const __dirname = path.resolve();
+const __dirname = path.resolve();
 
 app.post(
   "/api/stripe/webhook",
@@ -44,14 +44,14 @@ app.use("/api/orders", orderRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/admin", adminRoutes)
 
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static(path.join(__dirname, "../frontend/dist")));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-//   // Catch-all route for SPA
-//   app.use((req, res) => {
-//     res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
-//   });
-// }
+  // Catch-all route for SPA
+  app.use((req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+  });
+}
 
 server.listen(PORT, () => {
   console.log("server is running on PORT:" + PORT);

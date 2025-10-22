@@ -12,7 +12,7 @@ const ProductsPage = () => {
   return (
     <div className="flex flex-col px-20 gap-10">
       {/* Header Row */}
-      <div className="grid grid-cols-[200px_400px_200px_1fr_100px] bg-gray-100 border border-gray-300 px-8 py-3 text-centerfont-bold text-gray-700 text-lg">
+      <div className="grid grid-cols-[200px_400px_200px_1fr_100px] bg-gray-100 border border-gray-300 px-8 py-3 text-centerfont-bold text-gray-700 text-lg font-bold">
         <h1>Image</h1>
         <h1>Name</h1>
         <h1>Category</h1>

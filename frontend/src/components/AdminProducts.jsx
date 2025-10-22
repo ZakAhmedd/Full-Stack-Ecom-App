@@ -16,15 +16,15 @@ const AdminProducts = ({product}) => {
       </div>
 
       <div className="flex items-center">
-        <h2 className="text-xl text-gray-700 font-medium">{product.name}</h2>
+        <h2 className="text-xl text-gray-700">{product.name}</h2>
       </div>
 
       <div className="flex items-center">
-        <h2 className="text-lg xl:text-xl text-gray-700 font-medium">{product.category}</h2>
+        <h2 className="text-lg xl:text-xl text-gray-700">{product.category}</h2>
       </div>
 
       <div className="flex items-center">
-        <h2 className="text-lg xl:text-xl text-gray-700 font-medium">£{product.price}</h2>
+        <h2 className="text-lg xl:text-xl text-gray-700">£{product.price}</h2>
       </div>
 
       <div className="flex items-center">

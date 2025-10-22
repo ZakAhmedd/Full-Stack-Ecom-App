@@ -13,7 +13,7 @@ const AddItemPage = () => {
     price: "",
     sizes: [],
     bestseller: false,
-    images: [],
+    image: [],
   });
 
   const toggleSize = (size) => {
@@ -39,7 +39,7 @@ const AddItemPage = () => {
 
       formData.sizes.forEach((size) => data.append("sizes[]", size));
 
-      formData.images.forEach((file) => data.append("images", file));
+      formData.image.forEach((file) => data.append("image", file));
 
       const response = await axios.post(
         "http://localhost:5001/api/products",
@@ -62,7 +62,7 @@ const AddItemPage = () => {
         subCategory: "",
         bestseller: false,
         sizes: [],
-        images: [],
+        image: [],
       });
     } catch (err) {
       console.error("Failed to add product:", err);
@@ -80,9 +80,9 @@ const AddItemPage = () => {
               key={i}
               className="cursor-pointer w-32 h-32 rounded-lg flex items-center justify-center overflow-hidden"
             >
-              {formData.images[i] ? (
+              {formData.image[i] ? (
                 <img
-                  src={URL.createObjectURL(formData.images[i])}
+                  src={URL.createObjectURL(formData.image[i])}
                   alt={`preview ${i + 1}`}
                   className="w-full h-full object-cover"
                 />
@@ -95,13 +95,13 @@ const AddItemPage = () => {
               )}
               <input
                 type="file"
-                name="images"
+                name="image"
                 accept="image/*"
                 className="hidden"
                 onChange={(e) => {
-                  const files = [...formData.images];
+                  const files = [...formData.image];
                   files[i] = e.target.files[0];
-                  setFormData({ ...formData, images: files });
+                  setFormData({ ...formData, image: files });
                 }}
               />
             </label>

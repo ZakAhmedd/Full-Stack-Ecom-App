@@ -8,7 +8,7 @@ export const createProduct = async (req, res) => {
 
     const productData = {
       ...req.body,
-      images: imageUrls,
+      image: imageUrls,
     };
 
     const product = await Product.create(productData);

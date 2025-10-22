@@ -1,0 +1,23 @@
+{
+  "name": "ecom-app",
+  "version": "1.0.0",
+  "description": "🌟 Tech stack: MERN + TailwindCSS + Daisy UI 🎃 Authentication && Authorization with JWT 👌 Global state management with Zustand ☁️ Cloudinary storage for all Images ✅ Formik + Yup for form on frontend 🐞 Error handling both on the server and on the client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm install --prefix backend && npm install --prefix frontend --include=dev && npm run build --prefix frontend",
+    "start": "npm run start --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZakAhmedd/Full-Stack-Ecom-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ZakAhmedd/Full-Stack-Ecom-App/issues"
+  },
+  "homepage": "https://github.com/ZakAhmedd/Full-Stack-Ecom-App#readme"
+}

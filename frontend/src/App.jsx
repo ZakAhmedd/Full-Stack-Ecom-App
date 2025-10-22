@@ -18,7 +18,7 @@ import Privacy from "./pages/PrivacyPage";
 import Terms from "./pages/TermsPage";
 
 import AdminLogin from "./adminPages/LoginPage";
-import Dashboard from "./adminPages/DashboardPage";
+import AddItem from "./adminPages/AddItemPage";
 import Products from "./adminPages/ProductsPage";
 import Orders from "./adminPages/OrdersPage";
 
@@ -57,7 +57,7 @@ const App = () => {
         <Route path="/adminLogin" element={<AdminLogin />} />
 
         <Route element={<AdminLayout />}>
-          <Route path="/admin/dashboard" element={<Dashboard />} />
+          <Route path="/admin/addItem" element={<AddItem />} />
           <Route path="/admin/products" element={<Products />} />
           <Route path="/admin/orders" element={<Orders />} />
         </Route>

@@ -26,7 +26,7 @@ const LoginPage = () => {
   useEffect(() => {
     if (isLoggedIn) {
       setFormData({ email: "", password: "" });
-      navigate("/admin/dashboard"); 
+      navigate("/admin/addItem"); 
     }
   }, [isLoggedIn, navigate]);
 

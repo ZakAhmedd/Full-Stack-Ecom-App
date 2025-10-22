@@ -3,12 +3,22 @@ import Product from "../models/product.model.js";
 // Create new product (Admin only)
 export const createProduct = async (req, res) => {
   try {
-    const product = await Product.create(req.body);
+    // Extract Cloudinary URLs from multer-storage-cloudinary
+    const imageUrls = req.files ? req.files.map(file => file.path) : [];
+
+    const productData = {
+      ...req.body,
+      images: imageUrls,
+    };
+
+    const product = await Product.create(productData);
     res.status(201).json(product);
   } catch (error) {
+    console.error("Error creating product:", error);
     res.status(400).json({ message: error.message });
   }
 };
+
 
 // Get all products (Public)
 export const getProducts = async (req, res) => {

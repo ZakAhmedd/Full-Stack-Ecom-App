@@ -11,11 +11,9 @@ import { adminOnly } from "../middleware/admin.middleware.js";
 
 const router = express.Router();
 
-// ADD ADMIN ONLY MIDDLEWARE
-
 router.get("/", getProducts);
-router.post("/", protectRoute, adminOnly, upload.single("image"), createProduct);
-router.put("/:id", protectRoute, adminOnly, upload.single("image"), updateProduct);
+router.post("/", protectRoute, adminOnly, upload.array("images", 4), createProduct);
+router.put("/:id", protectRoute, adminOnly, upload.array("images", 4), updateProduct);
 router.delete("/:id", protectRoute, adminOnly, deleteProduct);
 
 export default router;

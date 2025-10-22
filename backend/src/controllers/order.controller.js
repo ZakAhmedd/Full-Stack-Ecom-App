@@ -43,7 +43,6 @@ export const getOrderById = async (req, res) => {
 
 export const getAllOrders = async (req, res) => {
   try {
-    // Optional: restrict this to admin users
     if (!req.user.isAdmin) {
       return res.status(403).json({ message: "Not authorized as admin" })
     }

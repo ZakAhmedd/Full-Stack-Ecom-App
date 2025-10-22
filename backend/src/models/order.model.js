@@ -50,11 +50,6 @@ const orderSchema = new mongoose.Schema({
   paidAt: Date,
 });
 
-orderSchema.pre(/^find/, function (next) {
-  this.populate("user", "firstName lastName email");
-  next();
-});
-
 const Order = mongoose.model("Order", orderSchema);
 
 export default Order;

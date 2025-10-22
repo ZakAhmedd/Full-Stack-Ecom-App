@@ -1,5 +1,8 @@
 {
   "name": "ecom-app",
+  "engines": {
+    "node": "22.16.0"
+  },
   "version": "1.0.0",
   "description": "🌟 Tech stack: MERN + TailwindCSS + Daisy UI 🎃 Authentication && Authorization with JWT 👌 Global state management with Zustand ☁️ Cloudinary storage for all Images ✅ Formik + Yup for form on frontend 🐞 Error handling both on the server and on the client",
   "main": "index.js",

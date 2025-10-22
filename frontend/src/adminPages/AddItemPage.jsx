@@ -95,6 +95,7 @@ const AddItemPage = () => {
               )}
               <input
                 type="file"
+                name="images"
                 accept="image/*"
                 className="hidden"
                 onChange={(e) => {

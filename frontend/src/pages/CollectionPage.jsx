@@ -33,6 +33,7 @@ const CollectionPage = () => {
   };
 
   const filteredProducts = products.filter((product) => {
+    
     const categoryMatch =
       selectedCategories.length === 0 ||
       selectedCategories.includes(product.category);

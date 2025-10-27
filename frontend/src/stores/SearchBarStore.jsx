@@ -4,7 +4,6 @@ const useSearchBarStore = create((set) => ({
   showSearchBar: false,
   searchTerm: "",
 
-  // Actions
   openSearchBar: () => set({ showSearchBar: true }),
   closeSearchBar: () => set({ showSearchBar: false }),
   toggleSearchBar: () =>

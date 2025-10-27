@@ -3,6 +3,11 @@ import ProductCard from '../components/ProductCard'
 import SubscribeForm from '../components/SubscribeForm'
 import useProductStore from '../stores/ProductStore'
 
+import hero_img from "../assets/frontend_assets/hero_img.png"
+import exchange_icon from "../assets/frontend_assets/exchange_icon.png"
+import quality_icon from "../assets/frontend_assets/quality_icon.png"
+import support_icon from "../assets/frontend_assets/support_img.png"
+
 const HomePage = () => {
 
   const { products, getProducts } = useProductStore();
@@ -39,7 +44,7 @@ const HomePage = () => {
 
           </div>
           <div className="h-full">
-            <img className="w-full h-full object-cover block" src="src/assets/frontend_assets/hero_img.png" alt="hero img" />
+            <img className="w-full h-full object-cover block" src={hero_img} alt="hero img" />
           </div>
         </div>
       </div>
@@ -93,19 +98,19 @@ const HomePage = () => {
       
         <div className="flex flex-row justify-center items-center gap-10 xl:gap-38 text-center">
           <div className="flex flex-col items-center gap-2">
-            <img className="mb-5 h-20 w-auto" src="src/assets/frontend_assets/exchange_icon.png" />
+            <img className="mb-5 h-20 w-auto" src={exchange_icon} />
             <h2 className="font-semibold text-md xl:text-xl">Easy Exchange Policy</h2>
             <p className="text-gray-400 font-medium text-md xl:text-xl">We offer hassle free exchange policy</p>
           </div>
 
           <div className="flex flex-col items-center gap-2">
-            <img className="mb-5 h-20 w-auto" src="src/assets/frontend_assets/quality_icon.png" />
+            <img className="mb-5 h-20 w-auto" src={quality_icon} />
             <h2 className="font-semibold text-md xl:text-xl">7 Days Return Policy</h2>
             <p className="text-gray-400 font-medium text-md xl:text-xl">We provide 7 days free return policy</p>
           </div>
 
           <div className="flex flex-col items-center gap-2">
-            <img className="mb-5 h-20 w-auto" src="src/assets/frontend_assets/support_img.png" />
+            <img className="mb-5 h-20 w-auto" src={support_icon} />
             <h2 className="font-semibold text-md xl:text-xl">Best Customer Support</h2>
             <p className="text-gray-400 font-medium text-md xl:text-xl">We provide 24/7 customer support</p>
           </div>

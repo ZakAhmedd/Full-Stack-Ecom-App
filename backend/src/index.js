@@ -35,7 +35,7 @@ app.use(cookieParser());
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://full-stack-ecom-app-pq5m.onrender.com/",
+  "https://full-stack-ecom-app-pq5m.onrender.com",
 ];
 
 app.use(

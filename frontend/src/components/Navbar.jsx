@@ -124,7 +124,7 @@ const Navbar = () => {
           </NavLink>
         </div>
 
-        <div className="flex justify-center items-center gap-8 pl-50 xl:pl-0">
+        <div className="flex justify-center items-center gap-8">
           <button onClick={handleSearchClick} className="cursor-pointer">
             <img src={search_icon} alt="Search" className="w-6 h-6" />
           </button>
@@ -175,7 +175,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="xl:hidden" onClick={() => setIsOpen(!isOpen)}>
+        <button className="xl:hidden cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>

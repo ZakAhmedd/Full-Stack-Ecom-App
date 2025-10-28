@@ -96,7 +96,7 @@ const HomePage = () => {
       {/* EXTRA */}
       <div className="flex flex-col justify-center items-center mt-35">
       
-        <div className="flex flex-row justify-center items-center gap-10 xl:gap-38 text-center">
+        <div className="flex flex-row justify-center items-center gap-5 xl:gap-38 text-center">
           <div className="flex flex-col items-center gap-2">
             <img className="mb-5 h-15 w-auto" src={exchange_icon} />
             <h2 className="font-semibold text-md xl:text-xl">Easy Exchange Policy</h2>

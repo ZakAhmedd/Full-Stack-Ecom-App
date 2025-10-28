@@ -4,21 +4,45 @@ node_modules/
 # Build outputs
 build/
 dist/
+dist-ssr/
 
 # Environment variables
 .env
+*.local
 
+# =========================
 # Logs
-*.log
+# =========================
 
-# System files
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# =========================
+# Temporary / Uploaded Files
+# =========================
+
+uploads/
+tmp/
+
+# =========================
+# System Files
+# =========================
+
 .DS_Store
 Thumbs.db
 
-# IDE / Editor settings
-.vscode/
-.idea/
+# =========================
+# IDE / Editor Settings
+# =========================
 
-# Temporary or uploaded files
-uploads/
-tmp/
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

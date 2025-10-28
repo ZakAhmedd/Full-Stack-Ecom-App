@@ -11,7 +11,6 @@ const useCartStore = create((set, get) => ({
     );
 
     if (existingItem) {
-      // If same product & size already exists → increase quantity
       set({
         cartItems: get().cartItems.map(i =>
           i._id === item._id && i.size === item.size
@@ -20,7 +19,6 @@ const useCartStore = create((set, get) => ({
         )
       });
     } else {
-      // Otherwise → add as a new item
       set({ cartItems: [...get().cartItems, { ...item, quantity: 1 }] });
     }
   },

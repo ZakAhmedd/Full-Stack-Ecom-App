@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import axios from "axios";
+import { axiosInstance } from "../lib/axios";
 
 const useProductStore = create((set, get) => ({
   products: [],
@@ -10,7 +10,8 @@ const useProductStore = create((set, get) => ({
   getProducts: async () => {
     set({ loading: true, error: null });
     try {
-      const res = await axios.get("http://localhost:5001/api/products");
+      const res = await axiosInstance.get("/products");
+
       set({ products: res.data, loading: false });
     } catch (err) {
       console.error("Failed to fetch products:", err);
@@ -21,10 +22,11 @@ const useProductStore = create((set, get) => ({
   // Add a new product (for admin use)
   addProduct: async (formData) => {
     try {
-      const res = await axios.post("http://localhost:5001/api/products", formData, {
-        withCredentials: true,
+      const res = await axiosInstance.post("/products", {
+        formData,
         headers: { "Content-Type": "multipart/form-data" },
       });
+      
       set({ products: [res.data, ...get().products] });
       return res.data;
     } catch (err) {
@@ -33,29 +35,11 @@ const useProductStore = create((set, get) => ({
     }
   },
 
-  // Update product
-  updateProduct: async (id, formData) => {
-    try {
-      const res = await axios.put(`http://localhost:5001/api/products/${id}`, formData, {
-        withCredentials: true,
-        headers: { "Content-Type": "multipart/form-data" },
-      });
-      set({
-        products: get().products.map((p) => (p._id === id ? res.data : p)),
-      });
-      return res.data;
-    } catch (err) {
-      console.error("Failed to update product:", err);
-      throw err;
-    }
-  },
-
   // Delete product
   deleteProduct: async (id) => {
     try {
-      await axios.delete(`http://localhost:5001/api/products/${id}`, {
-        withCredentials: true,
-      });
+      await axiosInstance.delete(`/products/${id}`);
+
       set({ products: get().products.filter((p) => p._id !== id) });
     } catch (err) {
       console.error("Failed to delete product:", err);

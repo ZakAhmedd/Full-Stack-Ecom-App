@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import axios from "axios";
 import toast from "react-hot-toast";
+import { axiosInstance } from "../lib/axios";
 
 export const useAuthStore = create(
   persist(
@@ -11,13 +11,7 @@ export const useAuthStore = create(
 
       login: async (email, password) => {
         try {
-          const response = await axios.post(
-            "http://localhost:5001/api/auth/login",
-            { email, password },
-            {
-              withCredentials: true,
-            }
-          );
+          const response = await axiosInstance.post("/auth/login", { email, password });
 
           const data = response.data;
 
@@ -32,13 +26,7 @@ export const useAuthStore = create(
 
       adminLogin: async (email, password) => {
         try {
-          const response = await axios.post(
-            "http://localhost:5001/api/admin/login",
-            { email, password },
-            {
-              withCredentials: true,
-            }
-          );
+          const response = await axiosInstance.post("/admin/login", { email, password });
 
           const data = response.data;
 
@@ -54,9 +42,7 @@ export const useAuthStore = create(
 
       logout: async () => {
         try {
-          await axios.post("http://localhost:5001/api/auth/logout", {}, {
-            withCredentials: true,
-          });
+          await axiosInstance.post("/auth/logout");
 
           set({ user: null, isLoggedIn: false });
 

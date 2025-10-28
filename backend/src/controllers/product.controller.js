@@ -30,18 +30,6 @@ export const getProducts = async (req, res) => {
   }
 };
 
-// Update product (Admin only)
-export const updateProduct = async (req, res) => {
-  try {
-    const updated = await Product.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-    });
-    res.status(200).json(updated);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-};
-
 // Delete product (Admin only)
 export const deleteProduct = async (req, res) => {
   try {

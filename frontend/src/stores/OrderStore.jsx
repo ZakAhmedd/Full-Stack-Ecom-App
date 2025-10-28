@@ -1,6 +1,5 @@
 import { create } from "zustand";
-import axios from "axios";
-
+import { axiosInstance } from "../lib/axios";
 const useOrderStore = create((set) => ({
   orders: [],
   loading: false,
@@ -9,10 +8,8 @@ const useOrderStore = create((set) => ({
   getOrders: async () => {
     set({ loading: true, error: null });
     try {
-      const res = await axios.get("http://localhost:5001/api/orders", 
-      {
-        withCredentials: true,
-      });
+      const res = await axiosInstance.get("/orders");
+      
       set({ orders: res.data, loading: false });
     } catch (err) {
       set({ error: err.message, loading: false });

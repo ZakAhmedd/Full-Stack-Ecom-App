@@ -14,6 +14,7 @@ import stripeRoutes from "./routes/stripe.route.js";
 import orderRoutes from "./routes/order.route.js";
 import productRoutes from "./routes/product.route.js";
 import adminRoutes from "./routes/admin.route.js"
+import subscribe from "./controllers/subscribe.controller.js"
 
 const app = express();
 const server = http.createServer(app);
@@ -43,6 +44,8 @@ app.use("/api/stripe", stripeRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/admin", adminRoutes)
+
+app.post("/api/subscribe", subscribe)
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));

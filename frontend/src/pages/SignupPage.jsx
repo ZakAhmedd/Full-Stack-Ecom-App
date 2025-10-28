@@ -37,7 +37,7 @@ const SignupPage = () => {
     } else {
       setErrors({})
       try {
-        await axiosInstance.post('/signup', formData)
+        await axiosInstance.post('/auth/signup', formData)
 
         toast.success(
           <>

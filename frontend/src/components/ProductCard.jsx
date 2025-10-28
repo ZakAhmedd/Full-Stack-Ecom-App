@@ -10,7 +10,7 @@ export default function ProductCard({ product }) {
       />
 
       <h2 className="text-sm leading-tight">{product.name}</h2>
-      <p className="font-bold text-gray-800 mt-2">£{product.price}</p>
+      <p className="font-medium text-gray-800 mt-2">£{product.price}</p>
     </Link>
   );
 }

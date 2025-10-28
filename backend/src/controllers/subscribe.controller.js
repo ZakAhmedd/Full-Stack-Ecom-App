@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import Subscriber from "../models/subscribe.model.js";
 
 const subscribe = async (req, res) => {
   const { email } = req.body;
@@ -8,6 +9,13 @@ const subscribe = async (req, res) => {
   }
 
   try {
+    const existing = await Subscriber.findOne({ email });
+    if (existing) {
+      return res.status(409).json({ message: "Already subscribed" });
+    }
+
+    await Subscriber.create({ email });
+
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {

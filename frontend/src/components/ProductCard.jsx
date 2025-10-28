@@ -9,7 +9,7 @@ export default function ProductCard({ product }) {
         src={product.image} alt={product.name} 
       />
 
-      <h2 className="text-lg leading-tight">{product.name}</h2>
+      <h2 className="text-sm leading-tight">{product.name}</h2>
       <p className="font-bold text-gray-800 mt-2">£{product.price}</p>
     </Link>
   );

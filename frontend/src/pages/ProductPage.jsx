@@ -24,8 +24,14 @@ export default function ProductPage() {
       p._id !== product._id
   );
 
-  const relatedLength =
-    relatedProducts.length >= 5 ? 5 : relatedProducts.length === 4 ? 4 : 3;
+  const relatedLength = relatedProducts.length;
+
+  const xlColsClass =
+  relatedLength === 1 ? "xl:grid-cols-1" :
+  relatedLength === 2 ? "xl:grid-cols-2" :
+  relatedLength === 3 ? "xl:grid-cols-3" :
+  relatedLength === 4 ? "xl:grid-cols-4" :
+  "xl:grid-cols-5";
 
   if (!product) {
     return (
@@ -143,14 +149,12 @@ export default function ProductPage() {
           <span className="w-16 h-[2px] bg-black"></span>
         </div>
         <div
-          className={`grid grid-cols-2 xl:grid-cols-${relatedLength} ${
-            relatedLength <= 3 ? "gap-10" : "gap-5"
-          } mt-10`}
+          className={`grid w-full grid-cols-2 ${xlColsClass} gap-5 mt-10`}
         >
           {relatedProducts.slice(0, 5).map((product, index) => (
             <div
               key={product._id}
-              className={index === 4 ? "hidden xl:block" : "max-w-[200px]"}
+              className={`max-w-[200px] ${index === 4 && relatedLength >= 5 ? "hidden xl:block" : ""}`}
             >
               <ProductCard product={product} />
             </div>

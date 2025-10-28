@@ -4,7 +4,7 @@ import DeliveryForm from "../components/DeliveryForm";
 import stripe_logo from "../assets/frontend_assets/stripe_logo.png";
 import razorpay_logo from "../assets/frontend_assets/razorpay_logo.png";
 import toast from "react-hot-toast";
-import axios from "axios";
+import { axiosInstance } from '../lib/axios';
 import useCartStore from "../stores/CartStore";
 
 const CheckoutPage = () => {
@@ -72,8 +72,7 @@ const CheckoutPage = () => {
 
   try {
     console.log(cartItems)
-    const response = await axios.post(
-      "http://localhost:5001/api/stripe/create-checkout-session",
+    const response = await axiosInstance.post("/stripe/create-checkout-session",
       { cartItems, deliveryInfo: validValues },
       { withCredentials: true }
     );

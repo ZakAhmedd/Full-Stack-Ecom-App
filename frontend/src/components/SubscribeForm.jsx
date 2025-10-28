@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
-
+import { axiosInstance } from "../lib/axios";
 export default function SubscribeForm() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState(false);
@@ -24,7 +23,7 @@ export default function SubscribeForm() {
         setError(false);
         setSuccess(false);
 
-        const res = await axios.post("http://localhost:5001/api/subscribe", { email });
+        const res = await axiosInstance.post("/subscribe", { email });
 
         if (res.status === 200) {
           setStatus("✅ Subscription email sent!");

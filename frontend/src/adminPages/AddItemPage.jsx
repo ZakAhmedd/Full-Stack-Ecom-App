@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import upload_area from "../assets/admin_assets/upload_area.png"
-import axios from "axios"
 import toast from "react-hot-toast"
+import { axiosInstance } from "../lib/axios"
 
 const AddItemPage = () => {
 
@@ -55,14 +55,12 @@ const AddItemPage = () => {
 
       formData.image.forEach((file) => data.append("image", file));
 
-      const response = await axios.post(
-        "http://localhost:5001/api/products",
-        data,
+      const response = await axiosInstance.post("/products",
         {
+        data,
           headers: {
             "Content-Type": "multipart/form-data",
-          },
-          withCredentials: true,
+          }
         }
       );
 

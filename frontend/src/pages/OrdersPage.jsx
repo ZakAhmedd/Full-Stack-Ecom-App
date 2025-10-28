@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react"
-import axios from "axios"
-
+import { axiosInstance } from "../lib/axios"
 const OrdersPage = () => {
   const [orders, setOrders] = useState([])
 
   useEffect(() => {
     const getOrders = async () => {
       try {
-        const response = await axios.get("http://localhost:5001/api/orders/my-orders", {
-          withCredentials: true,
+        const response = await axiosInstance.get("/orders/my-orders", {
         })
+        
         setOrders(response.data)
       } catch (error) {
         console.error("Error fetching orders:", error)

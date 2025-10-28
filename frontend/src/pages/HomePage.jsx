@@ -118,7 +118,7 @@ const HomePage = () => {
 
         <div className="flex flex-col justify-center items-center mt-40">
           <h2 className="font-bold text-2xl mb-5">Subscribe now & get 20% off</h2>
-          <p className="text-gray-400 font-medium text-xl text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          <p className="text-gray-400 font-light text-lg text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
           {/* Daisyui Button Component */}
           <SubscribeForm />
         </div>

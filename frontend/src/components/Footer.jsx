@@ -46,7 +46,7 @@ const Footer = () => {
                 <div className="border-b-2 border-gray-200 w-350"></div>
             </div>
             <div>
-                <p className="font-medium text-center">© 2025 Zak - All Rights Reserved.</p>
+                <p className="font-medium text-sm text-center">© 2025 Zak - All Rights Reserved.</p>
             </div>
         </div>
     </footer>

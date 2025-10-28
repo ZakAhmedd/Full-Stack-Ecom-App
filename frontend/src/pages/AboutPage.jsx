@@ -46,7 +46,7 @@ const AboutPage = () => {
       </div>
       <div className="flex flex-col justify-center items-center mt-20 mx-auto">
           <h2 className="font-bold text-xl xl:text-2xl mb-5">Subscribe now & get 20% off</h2>
-          <p className="text-gray-400 font-medium text-xl text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          <p className="text-gray-400 font-light text-lg text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
           <div className="w-full max-w-[500px] xl:max-w-none">
             <SubscribeForm />
           </div>

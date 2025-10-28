@@ -25,7 +25,6 @@ export default function SubscribeForm() {
     setError(false);
     setSuccess(true);
 
-    // Hide success after 3 seconds
     setTimeout(() => setSuccess(false), 3000);
   };
 

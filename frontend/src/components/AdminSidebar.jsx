@@ -5,12 +5,12 @@ import order_icon from "../assets/admin_assets/order_icon.png"
 
 const AdminSidebar = () => {
   return (
-    <div className="h-screen flex items-end flex-col gap-10 w-80 border-r border-gray-200 pt-10">
+    <div className="h-screen flex items-end flex-col gap-10 w-60 border-r border-gray-200 pt-10">
 
       <NavLink
         to="/admin/addItem"
         className={({ isActive }) =>
-          `btn btn-primary justify-start font-medium text-xl border w-60 h-15 ${
+          `btn btn-primary justify-start font-medium text-xl border w-50 h-15 ${
             isActive
               ? "bg-pink-200 text-black border-pink-600"
               : "bg-white text-black border-gray-400"
@@ -24,7 +24,7 @@ const AdminSidebar = () => {
       <NavLink
         to="/admin/products"
         className={({ isActive }) =>
-          `btn btn-primary justify-start font-medium text-xl border w-60 h-15 ${
+          `btn btn-primary justify-start font-medium text-xl border w-50 h-15 ${
             isActive
               ? "bg-pink-200 text-black border-pink-600"
               : "bg-white text-black border-gray-400"
@@ -38,7 +38,7 @@ const AdminSidebar = () => {
       <NavLink
         to="/admin/orders"
         className={({ isActive }) =>
-          `btn btn-primary justify-start font-medium text-xl border w-60 h-15 ${
+          `btn btn-primary justify-start font-medium text-xl border w-50 h-15 ${
             isActive
               ? "bg-pink-200 text-black border-pink-600"
               : "bg-white text-black border-gray-400"

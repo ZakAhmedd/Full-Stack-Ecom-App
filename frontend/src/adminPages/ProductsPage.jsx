@@ -10,7 +10,7 @@ const ProductsPage = () => {
   }, [getProducts]);
 
   return (
-    <div className="flex flex-col px-20 gap-10 overflow-x-auto">
+    <div className="flex flex-col px-10 gap-10 overflow-x-auto">
       {/* Header Row */}
       <div className="min-w-[1100px] grid grid-cols-[200px_400px_200px_1fr_100px] bg-gray-100 border border-gray-300 px-8 py-3 text-centerfont-bold text-gray-700 text-lg font-bold">
         <h1>Image</h1>

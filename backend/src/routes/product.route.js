@@ -3,7 +3,6 @@ import upload from "../middleware/upload.middleware.js";
 import {
   createProduct,
   getProducts,
-  updateProduct,
   deleteProduct,
 } from "../controllers/product.controller.js";
 import { protectRoute } from "../middleware/auth.middleware.js";

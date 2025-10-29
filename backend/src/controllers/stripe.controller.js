@@ -85,8 +85,6 @@ export const createCheckoutSession = async (req, res) => {
 
 export const stripeWebhook = async (req, res) => {
 
-  console.log("Stripe webhook called 🎃");
-
   const sig = req.headers["stripe-signature"];
 
   let event;

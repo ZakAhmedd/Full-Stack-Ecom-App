@@ -98,9 +98,10 @@ export const stripeWebhook = async (req, res) => {
     return res.status(400).send(`Webhook Error: ${err.message}`);
   }
 
+  console.log("📬 Stripe event type:", event.type);
+
   // ✅ Handle successful payment
   if (event.type === "checkout.session.completed") {
-    console.log("HELLO 🎃")
     const session = event.data.object;
     const orderId = session.metadata.orderId;
 

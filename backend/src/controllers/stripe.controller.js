@@ -110,10 +110,12 @@ export const stripeWebhook = async (req, res) => {
         return res.status(404).send("Order not found");
       }
 
-      order.status = "paid";
-      order.paidAt = new Date();
-      order.stripeSessionId = session.id;
-      await order.save();
+      if (order.status !== "paid") {
+        order.status = "paid";
+        order.paidAt = new Date();
+        order.stripeSessionId = session.id;
+        await order.save();
+      }
 
       console.log("✅ Order marked as paid:", order._id);
     } catch (err) {

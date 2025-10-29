@@ -24,7 +24,7 @@ const SuccessPage = () => {
         )
         : (
           <div className="flex flex-col justify-center">
-        <p className="text-2xl text-gray-500 font-semibold mb-15 max-w-140 text-center">To view your orders please signup / login to your account using the same email address:</p>
+        <p className="text-xl text-gray-500 font-semibold mb-15 max-w-140 text-center">To view your orders please signup / login to your account using the same email address:</p>
         <NavLink to ="/login" className="flex rounded-md">
           <button className="btn btn-primary w-full bg-gray-200 tracking-wide text-blue-700 font-bold text-xl py-10">Login / Signup</button>
         </NavLink>

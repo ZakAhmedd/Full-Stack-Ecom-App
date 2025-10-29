@@ -100,6 +100,7 @@ export const stripeWebhook = async (req, res) => {
 
   // ✅ Handle successful payment
   if (event.type === "checkout.session.completed") {
+    console.log("HELLO 🎃")
     const session = event.data.object;
     const orderId = session.metadata.orderId;
 

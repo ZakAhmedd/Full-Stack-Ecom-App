@@ -84,6 +84,9 @@ export const createCheckoutSession = async (req, res) => {
 };
 
 export const stripeWebhook = async (req, res) => {
+
+  console.log("Stripe webhook called 🎃");
+
   const sig = req.headers["stripe-signature"];
 
   let event;
@@ -97,8 +100,6 @@ export const stripeWebhook = async (req, res) => {
     console.error("❌ Webhook signature verification failed:", err.message);
     return res.status(400).send(`Webhook Error: ${err.message}`);
   }
-
-  console.log("📬 Stripe event type:", event.type);
 
   // ✅ Handle successful payment
   if (event.type === "checkout.session.completed") {

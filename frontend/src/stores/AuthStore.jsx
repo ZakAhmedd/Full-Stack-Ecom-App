@@ -34,8 +34,11 @@ export const useAuthStore = create(
 
           set({ user: data, isLoggedIn: true });
           localStorage.setItem("token", data.token);
+
+          return true
         } catch (err) {
           toast.error(err.response?.data?.message || "Login failed");
+          return false
         }
       },
 

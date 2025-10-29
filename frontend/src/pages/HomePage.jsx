@@ -17,11 +17,10 @@ const HomePage = () => {
   }, [getProducts]);
 
   return (
-    <div className="mx-10 xl:mx-35">
+    <div className="mx-10 xl:mx-30">
 
       {/* HERO */}
-      {/* TODO FIX ZOOM OUT BUG */}
-      <div className="border-[0.5px] mt-10 xl:mt-0 mb-25 xl:h-120">
+      <div className="border-[0.5px] mt-10 xl:mt-0 mb-25 xl:h-110">
 
         <div className="flex flex-col xl:grid xl:grid-cols-2 h-full">
           <div className="flex items-center justify-center">
@@ -29,15 +28,15 @@ const HomePage = () => {
             <div className="flex flex-col items-start justify-center text-left gap-3 py-25 xl:py-0">
               <div className="flex items-center gap-2">
                 <span className="w-15 h-[2.7px] bg-black"></span>
-                <span className="text-gray-700 font-medium text-lg xl:text-xl tracking-wide">OUR BESTSELLERS</span>
+                <span className="text-gray-700 font-medium text-base xl:text-lg tracking-wide">OUR BESTSELLERS</span>
               </div>
 
-              <h1 className="xl:text-7xl text-6xl font-serif font-extralight text-gray-800 pb-2">
+              <h1 className="xl:text-6xl text-5xl font-serif font-extralight text-gray-800 pb-2">
                 Latest Arrivals
               </h1>
 
               <div className="flex items-center gap-4">
-                <span className="text-gray-800 font-bold tracking-wide text-lg xl:text-xl">SHOP NOW</span>
+                <span className="text-gray-800 font-bold tracking-wide text-base xl:text-lg">SHOP NOW</span>
                 <span className="w-16 h-[1.2px] bg-gray-600"></span>
               </div>
             </div>
@@ -59,7 +58,7 @@ const HomePage = () => {
         </div>
 
         <div className="flex justify-center items-center mb-5">
-          <p className="text-center text-gray-600 font-medium text-lg mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the.</p>
+          <p className="text-center text-gray-600 text-base mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the.</p>
         </div>
 
         <div className="grid grid-cols-2 xl:grid-cols-5 gap-4">
@@ -80,7 +79,7 @@ const HomePage = () => {
         </div>
 
         <div className="flex justify-center items-center mb-5">
-          <p className="text-center text-gray-600 font-medium text-lg mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the.</p>
+          <p className="text-center text-gray-600 text-base mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the.</p>
         </div>
 
         <div className="grid grid-cols-2 xl:grid-cols-5 gap-4">
@@ -94,7 +93,7 @@ const HomePage = () => {
       </div>
 
       {/* EXTRA */}
-      <div className="flex flex-col justify-center items-center mt-35">
+      <div className="flex flex-col justify-center items-center mt-30">
       
         <div className="flex flex-row justify-center items-center gap-5 xl:gap-38 text-center">
           <div className="flex flex-col items-center gap-2">

@@ -64,7 +64,7 @@ const CollectionPage = () => {
 
   return (
 
-    <div className="min-h-screen flex flex-col mx-7 xl:mx-39 mt-5">
+    <div className="min-h-screen flex flex-col mx-7 xl:mx-27 mt-5">
 
         {/* Conditionally show Search Bar */}
         {showSearchBar && (
@@ -73,7 +73,7 @@ const CollectionPage = () => {
 
       <div className="flex flex-col xl:flex-row justify-between items-center">
         <h2 className="hidden xl:flex text-2xl font-medium">FILTERS</h2>
-        <div className="flex ml-15 xl:ml-0 xl:mr-20 justify-center items-center font-medium gap-2 text-3xl xl:font-semibold tracking-wide">
+        <div className="flex ml-15 justify-center items-center font-medium gap-2 text-3xl xl:font-semibold tracking-wide">
           <span className="text-gray-500">ALL </span>
           <span className="text-gray-800">COLLECTIONS</span>
           <span className="w-12 xl:w-16 h-[2.5px] bg-black"></span>
@@ -106,7 +106,7 @@ const CollectionPage = () => {
 
       <div className="flex flex-col xl:flex-row gap-10 xl:mt-15">
 
-        <div className="hidden xl:flex flex-col w-full max-w-[350px] h-fit justify-start gap-5">
+        <div className="hidden xl:flex flex-col w-full max-w-[290px] h-fit justify-start gap-5">
           <Filters 
             selectedCategories={selectedCategories}
             selectedTypes={selectedTypes}
@@ -115,7 +115,7 @@ const CollectionPage = () => {
           />
         </div>
 
-        <div className="flex xl:hidden flex-col w-full max-w-[350px] h-fit justify-start gap-5">
+        <div className="flex xl:hidden flex-col w-full max-w-[290px] h-fit justify-start gap-5">
           {isOpen && 
           <Filters 
             selectedCategories={selectedCategories}

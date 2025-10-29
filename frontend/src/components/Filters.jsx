@@ -11,19 +11,19 @@ const Filters = ({
   const types = ["Topwear", "Bottomwear", "Winterwear"]
 
   return (
-    <div className="flex flex-col w-full max-w-[350px] h-fit justify-start gap-3 xl:gap-5">
+    <div className="flex flex-col w-full h-fit justify-start gap-3 xl:gap-5">
         <div className="border border-gray-300 p-5">
             <div className="flex flex-col gap-3">
-                <h2 className="font-semibold text-lg mb-2">CATEGORIES</h2>
+                <h2 className="font-semibold text-base mb-2">CATEGORIES</h2>
                 {categories.map((category) => (
                     <label key={category} className="flex items-center gap-4">
                         <input
                             type="checkbox"
                             checked={selectedCategories.includes(category)}
                             onChange={() => onCategoryChange(category)}
-                            className="scale-140 accent-blue-500"
+                            className="scale-100 accent-blue-500"
                         />
-                        <span className="text-md text-gray-700">{category}</span>
+                        <span className="text-sm text-gray-700">{category}</span>
                     </label>
                 ))}
             </div>
@@ -31,16 +31,16 @@ const Filters = ({
 
         <div className="border border-gray-300 p-5">
             <div className="flex flex-col gap-3">
-                <h2 className="font-semibold text-lg mb-2">TYPE</h2>
+                <h2 className="font-semibold text-base mb-2">TYPE</h2>
                 {types.map((type) => (
                     <label key={type} className="flex items-center gap-4">
                         <input
                             type="checkbox"
                             checked={selectedTypes.includes(type)}
                             onChange={() => onTypeChange(type)}
-                            className="scale-140 accent-blue-500"
+                            className="scale-100 accent-blue-500"
                         />
-                        <span className="text-md text-gray-700">{type}</span>
+                        <span className="text-sm text-gray-700">{type}</span>
                     </label>
                 ))}
             </div>

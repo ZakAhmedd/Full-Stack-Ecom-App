@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import useAuthStore from '../stores/AuthStore'
 
@@ -9,7 +9,6 @@ const LoginPage = () => {
   })
 
   const adminLogin = useAuthStore((state) => state.adminLogin);
-  const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
 
   const navigate = useNavigate()
 
@@ -19,17 +18,16 @@ const LoginPage = () => {
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    await adminLogin(formData.email, formData.password)
-  }
+    e.preventDefault();
 
-  useEffect(() => {
-    if (isLoggedIn) {
+    const success = await adminLogin(formData.email, formData.password);
+
+    if (success) {
       setFormData({ email: "", password: "" });
-      navigate("/admin/addItem"); 
-    }
-  }, [isLoggedIn, navigate]);
 
+      navigate("/admin/addItem");
+    }
+  };
 
   return (
     <div className="h-screen flex justify-center -my-5 xl:-my-20 items-center">

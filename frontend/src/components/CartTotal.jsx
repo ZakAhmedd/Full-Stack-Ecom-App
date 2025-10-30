@@ -10,7 +10,7 @@ const CartTotal = () => {
   return (
 
     <div>
-      <div className="flex items-center gap-2 text-3xl font-medium tracking-wide mb-5">
+      <div className="flex items-center gap-2 text-2xl xl:text-3xl font-medium tracking-wide mb-5">
         <span className="text-gray-500">CART</span>
         <span className="text-gray-800">TOTALS</span>
         <span className="w-10 h-[2px] bg-black"></span>

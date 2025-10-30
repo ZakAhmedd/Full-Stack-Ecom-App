@@ -62,7 +62,7 @@ export default function ProductPage() {
           />
         </div>
 
-        <div className="xl:hidden flex flex-col gap-4 max-w-[130px]">
+        <div className="xl:hidden flex flex-col gap-4 max-w-[90px] xl:max-w-[130px]">
           <img
             src={product.image}
             alt={product.name}
@@ -119,7 +119,7 @@ export default function ProductPage() {
           <p className="text-lg font-extrabold">Description</p>
         </div>
         <div className="border border-gray-200 w-fit p-10">
-          <p className="text-base text-gray-600 font-medium">
+          <p className="text-sm xl:text-base text-gray-600 font-medium">
             An e-commerce website is an online platform that facilitates the
             buying and selling of products or services over the internet. It
             serves as a virtual marketplace where businesses and individuals can

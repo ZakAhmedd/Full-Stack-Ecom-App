@@ -83,11 +83,11 @@ const CheckoutPage = () => {
 };
 
   return (
-    <div className="h-screen flex mx-15 xl:mx-40 mt-20 gap-10">
+    <div className="min-h-screen flex flex-col xl:flex-row mx-15 xl:mx-40 mt-20 gap-10">
 
       {/* LEFT SIDE */}
       <div className="flex w-4/5 flex-col gap-10">
-        <div className="flex items-center gap-2 text-3xl font-medium tracking-wide mb-5">
+        <div className="flex items-center gap-2 text-2xl xl:text-3xl font-medium tracking-wide mb-5">
           <span className="text-gray-500">DELIVERY</span>
           <span className="text-gray-800">INFORMATION</span>
           <span className="w-10 h-[2px] bg-black"></span>
@@ -96,7 +96,7 @@ const CheckoutPage = () => {
       </div>
 
       {/* RIGHT SIDE */}
-      <div className="w-3/4 mt-15 text-lg ml-auto">
+      <div className="xl:w-3/4 mt-15 text-lg xl:ml-auto">
         <CartTotal />
         <div className="flex flex-col mt-10">
           <div className="flex items-center gap-2 text-xl font-medium tracking-wide mb-5">

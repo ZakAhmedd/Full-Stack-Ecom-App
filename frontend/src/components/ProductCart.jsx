@@ -88,7 +88,7 @@ const ProductCart = (product) => {
 
       <div className="flex">
         <div className="w-[150px] flex items-center justify-center">
-          <img src={product.item.image} alt={product.item.name} className="max-w-full max-h-[100px] xl:max-h-[80px] object-contain" />
+          <img src={product.item.image} alt={product.item.name} className="max-w-full max-h-[80px] object-contain" />
         </div>
         <div className="flex flex-col justify-center">
           <h2 className="text-base xl:text-lg text-gray-700 font-medium">{product.item.name}</h2>
@@ -98,28 +98,33 @@ const ProductCart = (product) => {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-between border border-gray-200 w-[50px] xl:w-[80px] p-1">
-        <h2 className="text-base xl:text-lg text-gray-700 font-medium">{product.item.quantity}</h2>
-        <div className="flex flex-col gap-1 ml-2">
-          <button
-            onClick={increment}
-            className="border text-xs border-gray-200 px-1 rounded-sm bg-gray-100 hover:bg-gray-200">
-            +
-          </button>
-          <button
-            onClick={decrement}
-            className="border text-xs border-gray-200 px-1 rounded-sm bg-gray-100 hover:bg-gray-200">
-            –
+      <div className="flex-col items-center justify-center w-[70px] xl:w-[80px]">
+        <div className="flex justify-between border border-gray-200 p-1">
+          <h2 className="text-base xl:text-lg text-gray-700 font-medium">{product.item.quantity}</h2>
+          <div className="flex flex-col gap-1 ml-2">
+            <button
+              onClick={increment}
+              className="border text-xs border-gray-200 px-1 rounded-sm bg-gray-100 hover:bg-gray-200">
+              +
+            </button>
+            <button
+              onClick={decrement}
+              className="border text-xs border-gray-200 px-1 rounded-sm bg-gray-100 hover:bg-gray-200">
+              –
+            </button>
+          </div>
+        </div>
+        <div className="flex xl:hidden justify-center items-center mt-5">
+          <button onClick={() => removeItem(product.item._id, product.item.size)} className="cursor-pointer">
+            <img src={bin_icon} alt="bin icon" className="w-4 h-auto" />
           </button>
         </div>
-
       </div>
-      <div className="flex justify-center items-center xl:mr-15">
+      <div className="hidden xl:flex justify-center items-center xl:mr-15">
         <button onClick={() => removeItem(product.item._id, product.item.size)} className="cursor-pointer">
           <img src={bin_icon} alt="bin icon" className="w-6 h-auto" />
         </button>
       </div>
-
     </div>
   )
 }

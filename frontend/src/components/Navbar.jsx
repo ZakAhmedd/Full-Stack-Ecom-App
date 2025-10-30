@@ -58,7 +58,7 @@ const Navbar = () => {
         className={`flex justify-between xl:mx-20 ${notHome ? "pb-7 border-b-[3px] border-gray-200" : ""}`}
       >
         <NavLink to="/">
-          <img className="max-w-[150px] cursor-pointer" src={logo} alt="logo" />
+          <img className="max-w-[100px] xl:max-w-[150px] cursor-pointer" src={logo} alt="logo" />
         </NavLink>
 
         <div className="hidden xl:flex justify-center items-center gap-7 font-medium text-sm">
@@ -124,7 +124,7 @@ const Navbar = () => {
           </NavLink>
         </div>
 
-        <div className="flex justify-center items-center gap-8">
+        <div className="flex justify-center items-center gap-6 xl:gap-8">
           <button onClick={handleSearchClick} className="cursor-pointer">
             <img src={search_icon} alt="Search" className="w-6 h-6" />
           </button>
@@ -210,15 +210,6 @@ const Navbar = () => {
               onClick={() => setIsOpen(false)}
             >
               CONTACT
-            </NavLink>
-            <NavLink
-              to="/adminLogin"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-sm text-center py-2 hover:bg-gray-100 border border-gray-300 rounded-2xl"
-              onClick={() => setIsOpen(false)}
-            >
-              ADMIN PANEL
             </NavLink>
           </nav>
         </div>

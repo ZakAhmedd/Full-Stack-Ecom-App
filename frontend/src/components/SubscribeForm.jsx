@@ -61,12 +61,12 @@ export default function SubscribeForm() {
           required
           disabled={loading}
           onChange={(e) => setEmail(e.target.value)}
-          className={`w-full text-gray-600 placeholder:text-gray-400 text-lg px-4 py-6 border ${error ? "border-red-500" : "border-gray-300"}`}
+          className={`w-full text-gray-600 placeholder:text-gray-400 text-base xl:text-lg px-2 py-3 xl:px-4 xl:py-6 border ${error ? "border-red-500" : "border-gray-300"}`}
         />
         <button
           type="submit"
           disabled={loading}
-          className="btn btn-neutral text-white px-10 py-9 text-sm"
+          className="btn btn-neutral text-white px-5 py-6 xl:px-10 xl:py-9 text-sm"
         >
           {loading ? "Sending..." : "SUBSCRIBE"}
         </button>

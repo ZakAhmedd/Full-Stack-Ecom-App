@@ -24,7 +24,7 @@ const CartPage = () => {
   return (
     <div className="h-auto mx-10 xl:mx-40 mt-10">
 
-      <div className="flex items-center gap-2 text-3xl font-medium tracking-wide mb-10">
+      <div className="flex items-center gap-2 text-2xl xl:text-3xl font-medium tracking-wide mb-10">
         <span className="text-gray-500">YOUR</span>
         <span className="text-gray-800">CART</span>
         <span className="w-16 h-[2.5px] bg-black"></span>

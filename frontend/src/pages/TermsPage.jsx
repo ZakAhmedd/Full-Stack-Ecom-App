@@ -3,14 +3,14 @@ import React from 'react'
 const TermsPage = () => {
   return (
 
-    <div className="h-auto mx-15 xl:mx-40">
-      <div className="flex justify-center items-center gap-2 text-3xl font-medium tracking-wide">
+    <div className="h-auto mx-10 xl:mx-40">
+      <div className="flex justify-center items-center gap-2 text-xl xl:text-3xl font-medium tracking-wide">
         <span className="text-gray-500">TERMS &</span>
         <span className="text-gray-800">CONDITIONS</span>
-        <span className="w-16 h-[2.5px] bg-black"></span>
+        <span className="w-16 h-[1.5px] xl:h-[2.5px] bg-black"></span>
       </div>
 
-      <div className="flex flex-col justify-center items-center space-y-20 w-100 text-md text-gray-700 xl:w-220 mx-auto mt-20 xl:mt-30 leading-relaxed">
+      <div className="flex flex-col justify-center items-center space-y-20 *:text-md text-gray-700 xl:w-220 mx-auto mt-20 xl:mt-30 leading-relaxed">
         <section>
           <h2 className="text-xl font-semibold mb-4">SHIPPING</h2>
           <p>ORDERS ARE PROCESSED MON–FRI AND SHIPPED WITHIN 3–5 BUSINESS DAYS FROM THE UK.</p>

@@ -73,10 +73,10 @@ const CollectionPage = () => {
 
       <div className="flex flex-col xl:flex-row justify-between items-center">
         <h2 className="hidden xl:flex text-2xl font-medium">FILTERS</h2>
-        <div className="flex ml-15 justify-center items-center font-medium gap-2 text-3xl xl:font-semibold tracking-wide">
+        <div className="flex ml-15 justify-center items-center font-medium gap-2 text-2xl xl:text-3xl xl:font-semibold tracking-wide">
           <span className="text-gray-500">ALL </span>
           <span className="text-gray-800">COLLECTIONS</span>
-          <span className="w-12 xl:w-16 h-[2.5px] bg-black"></span>
+          <span className="w-9 h-[1.5px] xl:w-16 xl:h-[2.5px] bg-black"></span>
         </div>
         <div className="flex justify-between items-center mt-20 xl:mt-0 w-full xl:w-auto">
           {/* Mobile Menu Button */}
@@ -91,14 +91,14 @@ const CollectionPage = () => {
               id="sort"
               value={sortOption}
               onChange={(e) => setSortOption(e.target.value)}
-              className="appearance-none border border-gray-300 bg-gray-100 rounded-md pl-1 xl:pl-2 pr-10 py-2 xl:py-3 text-gray-800 text-xs xl:text-sm font-semibold focus:outline-blue-500 focus:ring-2 focus:ring-black shadow-xs shadow-gray-800 cursor-pointer"
+              className="appearance-none border border-gray-300 bg-gray-100 rounded-md pl-1 xl:pl-2 pr-2 xl:pr-10 py-1 xl:py-3 text-gray-800 text-[10px] xl:text-sm font-semibold focus:outline-blue-500 focus:ring-2 focus:ring-black shadow-xs shadow-gray-800 cursor-pointer"
             >
               <option value="relevant">Relevance</option>
               <option value="price-low-high">Price: Low-High</option>
               <option value="price-high-low">Price: High-Low</option>
             </select>
             <span className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none">
-              <img src={sort} alt="sort" className="w-4 xl:w-5 h-auto" />
+              <img src={sort} alt="sort" className="w-3 xl:w-5 h-auto" />
             </span>
           </div>
         </div>

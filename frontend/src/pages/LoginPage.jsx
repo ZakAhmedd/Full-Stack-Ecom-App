@@ -33,7 +33,7 @@ const LoginPage = () => {
 
   return (
     <div className="flex justify-center items-center mt-10">
-      <fieldset className="fieldset flex flex-col justify-center items-center bg-base-200 rounded-box w-1/2 border border-purple-300 p-7 pb-15">
+      <fieldset className="fieldset flex flex-col justify-center items-center bg-base-200 rounded-box w-full xl:w-1/2 border border-purple-300 p-7 mx-5 xl:-mx-0 pb-5 xl:pb-15">
         <h2 className="text-center font-bold text-2xl mb-10 tracking-wide">Login</h2>
 
         <form onSubmit={handleSubmit} className="flex flex-col w-full items-center space-y-6">
@@ -65,12 +65,12 @@ const LoginPage = () => {
 
           <div className="relative w-full mt-10">
             <div className="absolute left-1/2 transform -translate-x-1/2">
-              <button type="submit" className="btn btn-neutral w-80">Login</button>
+              <button type="submit" className="btn btn-neutral w-40 xl:w-80">Login</button>
             </div>
 
-            <div className="flex justify-end mr-5 mt-16">
+            <div className="flex justify-end xl:mr-5 mt-16">
               <Link to="/signup">
-                <button type="button" className="btn btn-neutral btn-sm">Sign Up</button>
+                <button type="button" className="btn btn-neutral btn-xs xl:btn-sm">Sign Up</button>
               </Link>
             </div>
           </div>

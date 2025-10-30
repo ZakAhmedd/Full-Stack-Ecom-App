@@ -27,7 +27,7 @@ const HomePage = () => {
 
             <div className="flex flex-col items-start justify-center text-left gap-3 py-25 xl:py-0">
               <div className="flex items-center gap-2">
-                <span className="w-15 h-[2.7px] bg-black"></span>
+                <span className="w-15 h-[1.5px] xl:h-[2.7px] bg-black"></span>
                 <span className="text-gray-700 font-medium text-base xl:text-lg tracking-wide">OUR BESTSELLERS</span>
               </div>
 
@@ -51,14 +51,14 @@ const HomePage = () => {
 
       {/* LATEST COLLECTIONS */}
       <div className="flex flex-col justify-center items-center gap-4">
-        <div className="flex items-center gap-2 text-3xl font-semibold font-outfit tracking-wide">
+        <div className="flex items-center gap-2 text-2xl xl:text-3xl font-semibold font-outfit tracking-wide">
           <span className="text-gray-500">LATEST </span>
           <span className="text-gray-800">COLLECTIONS</span>
-          <span className="w-16 h-[2px] bg-black"></span>
+          <span className="w-12 xl:w-16 h-[2px] bg-black"></span>
         </div>
 
         <div className="flex justify-center items-center mb-5">
-          <p className="text-center text-gray-600 text-base mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the.</p>
+          <p className="text-center text-gray-600 text-sm xl:text-base mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the.</p>
         </div>
 
         <div className="grid grid-cols-2 xl:grid-cols-5 gap-4">
@@ -72,14 +72,14 @@ const HomePage = () => {
 
       {/* BEST SELLERS */}
       <div className="flex flex-col justify-center items-center gap-4 mt-20">
-        <div className="flex items-center gap-2 text-3xl font-semibold font-outfit tracking-wide">
+        <div className="flex items-center gap-2 text-2xl xl:text-3xl font-semibold font-outfit tracking-wide">
           <span className="text-gray-500">BEST </span>
           <span className="text-gray-800">SELLERS</span>
           <span className="w-16 h-[2px] bg-black"></span>
         </div>
 
         <div className="flex justify-center items-center mb-5">
-          <p className="text-center text-gray-600 text-base mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the.</p>
+          <p className="text-center text-gray-600 text-sm xl:text-base mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the.</p>
         </div>
 
         <div className="grid grid-cols-2 xl:grid-cols-5 gap-4">
@@ -116,8 +116,8 @@ const HomePage = () => {
         </div>
 
         <div className="flex flex-col justify-center items-center mt-40">
-          <h2 className="font-bold text-2xl mb-5">Subscribe now & get 20% off</h2>
-          <p className="text-gray-400 font-light text-lg text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          <h2 className="font-bold text-xl xl:text-2xl mb-5 text-center">Subscribe now & get 20% off</h2>
+          <p className="text-gray-400 font-light text-sm xl:text-lg text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
           {/* Daisyui Button Component */}
           <SubscribeForm />
         </div>

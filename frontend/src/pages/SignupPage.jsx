@@ -59,7 +59,7 @@ const SignupPage = () => {
 
   return (
     <div className="flex justify-center items-center mt-10">
-      <fieldset className="fieldset flex flex-col justify-center items-center bg-base-200 rounded-box w-1/2 border border-purple-300 p-7 pb-15">
+      <fieldset className="fieldset flex flex-col justify-center items-center bg-base-200 rounded-box w-full xl:w-1/2 border border-purple-300 p-7 mx-5 xl:mx-0 pb-10 xl:pb-15">
         <h2 className="text-center font-bold text-2xl mb-10 tracking-wide">Sign Up</h2>
 
         <form className="flex flex-col w-full items-center space-y-6" onSubmit={handleSubmit}>
@@ -103,7 +103,7 @@ const SignupPage = () => {
           </div>
 
           <div className="flex justify-center items-center w-full mt-6">
-            <button type="submit" className="btn btn-neutral w-80">Sign Up</button>
+            <button type="submit" className="btn btn-neutral w-60 xl:w-80">Sign Up</button>
           </div>
         </form>
       </fieldset>

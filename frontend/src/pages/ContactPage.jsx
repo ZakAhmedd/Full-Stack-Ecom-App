@@ -6,7 +6,7 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen flex flex-col mx-15 xl:mx-40 mt-3">
 
-      <div className="flex justify-center items-center gap-2 text-3xl font-medium tracking-wide">
+      <div className="flex justify-center items-center gap-2 text-2xl xl:text-3xl font-medium tracking-wide">
         <span className="text-gray-500">CONTACT </span>
         <span className="text-gray-800">US</span>
         <span className="w-16 h-[2.5px] bg-black"></span>
@@ -27,8 +27,8 @@ const ContactPage = () => {
       </div>
 
       <div className="flex flex-col justify-center items-center mt-20 mx-auto">
-          <h2 className="font-bold text-xl xl:text-2xl mb-5">Subscribe now & get 20% off</h2>
-          <p className="text-gray-400 font-light text-lg text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          <h2 className="font-bold text-xl xl:text-2xl mb-5 text-center">Subscribe now & get 20% off</h2>
+          <p className="text-gray-400 font-light text-sm xl:text-lg text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
           <div className="w-full max-w-[500px] xl:max-w-none">
             <SubscribeForm />
           </div>
